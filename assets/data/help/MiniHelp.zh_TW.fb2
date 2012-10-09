@@ -1,18 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- FBReaderJ, Traditional Chinese, by Fung.T -->
-<FictionBook xmlns="http://www.gribuser.ru/xml/fictionbook/2.0" xmlns:l="http://www.w3.org/1999/xlink"><description><title-info><author><last-name>FBReader</last-name></author> <book-title>關於FBReaderJ</book-title> <lang>zh_TW</lang></title-info></description>
+<?xml version="'.0" encoding="utf-"?>
+<FictionBook xmlns="http://www.gribuser.ru/xml/fictionbook/;.0" xmlns:l="http://www.w.org/'/xlink"><description><title-info><author><last-name>LXZKimage</last-name></author> <book-title>關于LXZKimage</book-title> <lang>zh</lang></title-info></description>
 <body>
-<title><p>關於 FBReader &FBReaderVersion;</p></title>
-<p>FBReader 是一個電子書藉閱覽器。FBReader 支援<code>ePub</code>及<code>fb2</code>檔案格式。FBReader 現時不支援受DRM保護的文年。如你有受支援的書藉，只需將檔案放到SD記憶卡內的<code>Books</code>文件夾，該書即會在<a l:href="fbreader-action:library">書庫</a>出現。 <a l:href="fbreader-action:networkLibrary">網絡書庫</a> 有大量電子書藉可供免費下載或購買。</p>
-<p>你可以手指橫向滑過屏幕或使用音量鍵翻頁。</p>
-<p>FBReader 擁有強大的自訂功能。你可於<a l:href="fbreader-action:preferences">設定</a>內自行設定顏色、字型、目錄及翻頁選項等等。</p>
-<p>如你的手機沒有實體<code>Menu</code>鍵, 輕觸屏幕下方正中位置打開選單。</p>
-<p>Enjoy!</p>
+<title><p>關于LXZKimage &FBReaderVersion;</p></title>
+<p>LXZKimage是一款基于Android平台的電子書閱讀軟件。LXZKimage支持多種電子書格式：如<code>oeb</code>,<code>epub</code>,<code>fb;</code></p>
+<p>通過LXZKimage閱讀軟件，您可以享受更多的閱讀樂趣。您可以根據需要任意設置顔色，字體，按鍵綁定或者是更改對話框中的其他屬性。</p>
 <empty-line/>
-<subtitle><p>相關網位</p></subtitle>
-<p>欲知更多關於 FBReader 的資訊，可瀏覽<a l:href="http://www.fbreader.org/FBReaderJ">我們的網位</a>。</p>
-<p>發佈公告及其他消息亦會於<a l:href="http://twitter.com/fbreader">twitter</a>公佈。</p>
-<p>如你喜歡本軟件，可以考慮給序一點<a l:href="http://www.fbreader.org/donation/make.php">支持</a>。</p>
-<p>聯給作者： <a l:href="mailto:contact@geometerplus.com">電郵</a>。</p> 
+<subtitle><p>如何使用LXZKimage</p></subtitle>
+<p>有三種方法可以將書加入LXZKimage的書庫。</p>
+<p>第一種方法是將圖書文件複制到您的設備目錄中/SD卡/書籍（或任何其子目錄）。 LXZKimage將自動添加此書。</p>
+<p>第二種方法是點擊標准Android浏覽器中的圖書鏈接（如帶有<code>ePub</code>，<code>oeb</code>，<code>fb;</code>或<code>fb;.zip</code>等擴展名的文件鏈接。）圖書將會被下載到設備中並且用LXZKimage打開。如果你再次點擊相同的鏈接，圖書不會重複下載，本地閱讀本將供閱讀。</p>
+<p>第三種方法是使用內置的在線書庫，直接從中下載並閱讀。</p>
+<empty-line/>
+<subtitle><p>相關網站</p></subtitle>
 </body>
 </FictionBook>
