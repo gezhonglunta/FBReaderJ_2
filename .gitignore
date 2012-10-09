@@ -13,4 +13,16 @@ bin/
 gen/
 
 # Local configuration file (sdk path, etc)
-local.properties
+default.properties
+build.properties
+res/drawable/
+res/raw/
+scripts/resources/*.diff
+obj/
+epubs/
+mappings/
+READY/
+.classpath
+.settings
+*.so
+*~
