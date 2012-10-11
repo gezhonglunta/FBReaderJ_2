@@ -20,12 +20,16 @@
 package org.geometerplus.fbreader;
 
 import android.os.Environment;
-
 import org.geometerplus.zlibrary.core.options.ZLStringOption;
 
 public abstract class Paths {
 	public static String cardDirectory() {
-		return Environment.getExternalStorageDirectory().getPath();
+		String state = Environment.getExternalStorageState();
+		if (Environment.MEDIA_MOUNTED.equals(state)) {
+			return Environment.getExternalStorageDirectory().getPath();
+	    } else {
+	    	return Environment.getDataDirectory().getPath();
+	    }
 	}
 
 	public static ZLStringOption BooksDirectoryOption() {
