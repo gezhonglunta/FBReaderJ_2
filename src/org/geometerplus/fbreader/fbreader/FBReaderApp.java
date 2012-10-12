@@ -97,7 +97,7 @@ public final class FBReaderApp extends ZLApplication {
 		new ZLStringOption("Options", "FooterFont", "Droid Sans");
 
 	final ZLStringOption ColorProfileOption =
-		new ZLStringOption("Options", "ColorProfile", ColorProfile.DAY);
+		new ZLStringOption("Options", "ColorProfile", ColorProfile.NIGHT);
 
 	public final ZLBooleanOption ShowLibraryInCancelMenuOption =
 		new ZLBooleanOption("CancelMenu", "library", true);
@@ -138,9 +138,9 @@ public final class FBReaderApp extends ZLApplication {
 
 		addAction(ActionCode.VOLUME_KEY_SCROLL_FORWARD, new VolumeKeyTurnPageAction(this, true));
 		addAction(ActionCode.VOLUME_KEY_SCROLL_BACK, new VolumeKeyTurnPageAction(this, false));
-
-		addAction(ActionCode.SWITCH_TO_DAY_PROFILE, new SwitchProfileAction(this, ColorProfile.DAY));
-		addAction(ActionCode.SWITCH_TO_NIGHT_PROFILE, new SwitchProfileAction(this, ColorProfile.NIGHT));
+		//关闭白底黑字/黑底白字设置
+		//addAction(ActionCode.SWITCH_TO_DAY_PROFILE, new SwitchProfileAction(this, ColorProfile.DAY));
+		//addAction(ActionCode.SWITCH_TO_NIGHT_PROFILE, new SwitchProfileAction(this, ColorProfile.NIGHT));
 
 		addAction(ActionCode.EXIT, new ExitAction(this));
 

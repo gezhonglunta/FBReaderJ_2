@@ -130,18 +130,20 @@ public class TipsManager {
 	}
 
 	public Action requiredAction() {
-		if (ShowTipsOption.getValue()) {
-			if (hasNextTip()) {
-				return myLastShownOption.getValue() + DELAY < currentTime()
-					? Action.Show : Action.None;
-			} else {
-				return myDownloadInProgress
-					? Action.None : Action.Download;
-			}
-		} else if (!TipsAreInitializedOption.getValue()) {
-			return Action.Initialize;
-		}
 		return Action.None;
+		//关闭每日提示设置
+//		if (ShowTipsOption.getValue()) {
+//			if (hasNextTip()) {
+//				return myLastShownOption.getValue() + DELAY < currentTime()
+//					? Action.Show : Action.None;
+//			} else {
+//				return myDownloadInProgress
+//					? Action.None : Action.Download;
+//			}
+//		} else if (!TipsAreInitializedOption.getValue()) {
+//			return Action.Initialize;
+//		}
+//		return Action.None;
 	}
 
 	public synchronized void startDownloading() {
