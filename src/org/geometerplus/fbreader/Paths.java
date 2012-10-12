@@ -28,7 +28,7 @@ public abstract class Paths {
 		if (Environment.MEDIA_MOUNTED.equals(state)) {
 			return Environment.getExternalStorageDirectory().getPath();
 	    } else {
-	    	return Environment.getDataDirectory().getPath()+"/data/org.geometerplus.zlibrary.ui.android";
+	    	return Environment.getDataDirectory().getPath()+"/data/org.LXZKimage";
 	    }
 	}
 

@@ -24,23 +24,17 @@ import java.lang.reflect.*;
 import android.app.Activity;
 import android.os.Bundle;
 import android.content.*;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.view.*;
 import android.os.PowerManager;
 
 import org.geometerplus.zlibrary.core.application.ZLApplication;
 import org.geometerplus.zlibrary.core.filesystem.ZLFile;
 
-import org.geometerplus.zlibrary.ui.android.R;
+import org.LXZKimage.R;
 import org.geometerplus.zlibrary.ui.android.application.ZLAndroidApplicationWindow;
 
 public abstract class ZLAndroidActivity extends Activity {
 	protected abstract ZLApplication createApplication();
-
-	private static final String REQUESTED_ORIENTATION_KEY = "org.geometerplus.zlibrary.ui.android.library.androidActiviy.RequestedOrientation";
-	private static final String ORIENTATION_CHANGE_COUNTER_KEY = "org.geometerplus.zlibrary.ui.android.library.androidActiviy.ChangeCounter";
-
 	private void setScreenBrightnessAuto() {
 		final WindowManager.LayoutParams attrs = getWindow().getAttributes();
 		attrs.screenBrightness = -1.0f;
