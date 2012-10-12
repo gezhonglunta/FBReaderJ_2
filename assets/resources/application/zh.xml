@@ -220,6 +220,8 @@
 		<node name="sharedFrom" value="共享自 &lt;a href=&quot;http://www.fbreader.org/&quot;&gt;LXZKimage&lt;/a&gt; "/>
 	</node>
 	<node name="menu">
+	    <node name="autoNextPage" value="开启自动翻阅"/>
+	    <node name="autoNextPageOff" value="关闭自动翻阅"/>
 		<node name="preferences" value="阅读相关设置"/>
 		<node name="bookInfo" value="书籍信息"/>
 		<node name="library" value="本地书柜"/>
@@ -581,9 +583,6 @@
 			<node name="horizontal" value="横屏翻阅">
 				<node name="summaryOn" value="横屏翻阅"/>
 				<node name="summaryOff" value="纵屏翻阅"/>
-			</node>
-			<node name="autoNextPage" value="自动翻阅">
-				<node name="autoNextPageOn" value="开启"/>
 			</node>
 		</node>
 		<node name="tapZones" value="拍触区域">

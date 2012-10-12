@@ -27,6 +27,7 @@ import org.geometerplus.zlibrary.core.filesystem.*;
 import org.geometerplus.zlibrary.core.application.*;
 import org.geometerplus.zlibrary.core.options.*;
 import org.geometerplus.zlibrary.core.util.ZLColor;
+import org.geometerplus.zlibrary.core.view.ZLView.Direction;
 
 import org.geometerplus.zlibrary.text.hyphenation.ZLTextHyphenator;
 import org.geometerplus.zlibrary.text.view.*;
@@ -142,6 +143,9 @@ public final class FBReaderApp extends ZLApplication {
 		//addAction(ActionCode.SWITCH_TO_DAY_PROFILE, new SwitchProfileAction(this, ColorProfile.DAY));
 		//addAction(ActionCode.SWITCH_TO_NIGHT_PROFILE, new SwitchProfileAction(this, ColorProfile.NIGHT));
 
+		addAction(ActionCode.AUTO_NEXT_PAGE, new AutoNextPageAction(this, false));
+		addAction(ActionCode.AUTO_NEXT_PAGE_OFF, new AutoNextPageAction(this, true));
+		
 		addAction(ActionCode.EXIT, new ExitAction(this));
 
 		BookTextView = new FBView(this);
@@ -534,5 +538,12 @@ public final class FBReaderApp extends ZLApplication {
 			treeToSelect = tree;
 		}
 		return treeToSelect;
+	}
+	
+	final MoveCursorAction autoNextPageAction = new MoveCursorAction(
+			FBReaderApp.this, Direction.down);
+
+	public void StartAutoNextPage() {
+		autoNextPageAction.run();
 	}
 }

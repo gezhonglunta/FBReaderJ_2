@@ -138,7 +138,7 @@ public final class FBReader extends ZLAndroidActivity {
 		if (fbReader.getPopupById(SelectionPopup.ID) == null) {
 			new SelectionPopup(fbReader);
 		}
-
+		
 		fbReader.addAction(ActionCode.SHOW_LIBRARY, new ShowLibraryAction(this, fbReader));
 		fbReader.addAction(ActionCode.SHOW_PREFERENCES, new ShowPreferencesAction(this, fbReader));
 		fbReader.addAction(ActionCode.SHOW_BOOK_INFO, new ShowBookInfoAction(this, fbReader));
@@ -445,6 +445,9 @@ public final class FBReader extends ZLAndroidActivity {
 		//关闭搜索菜单
 		//addMenuItem(menu, ActionCode.SEARCH, R.drawable.ic_menu_search);
 		//addMenuItem(menu, ActionCode.SHARE_BOOK, R.drawable.ic_menu_search);
+		//开启自动阅读
+		addMenuItem(menu, ActionCode.AUTO_NEXT_PAGE);
+		addMenuItem(menu, ActionCode.AUTO_NEXT_PAGE_OFF);
 		addMenuItem(menu, ActionCode.SHOW_PREFERENCES);
 		addMenuItem(menu, ActionCode.SHOW_BOOK_INFO);
 		final Menu subMenu = addSubMenu(menu, "screenOrientation");
