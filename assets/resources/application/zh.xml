@@ -584,6 +584,32 @@
 				<node name="summaryOn" value="横屏翻阅"/>
 				<node name="summaryOff" value="纵屏翻阅"/>
 			</node>
+			<node name="autoBrowseUnit" value="自动翻阅方式">
+			    <node name="Row" value="按行翻"/>
+				<node name="Page" value="按页翻"/>
+			</node>
+			<node name="autoBrowseInterval" value="自动翻阅间隔">
+			    <node name="S1" value="1秒"/>
+			    <node name="S2" value="2秒"/>
+			    <node name="S3" value="3秒"/>
+			    <node name="S4" value="4秒"/>
+			    <node name="S5" value="5秒"/>
+			    <node name="S6" value="6秒"/>
+			    <node name="S7" value="7秒"/>
+			    <node name="S8" value="8秒"/>
+			    <node name="S9" value="9秒"/>
+			    <node name="S10" value="10秒"/>
+			    <node name="S11" value="11秒"/>
+			    <node name="S12" value="12秒"/>
+			    <node name="S13" value="13秒"/>
+			    <node name="S14" value="14秒"/>
+			    <node name="S15" value="15秒"/>
+			    <node name="S20" value="20秒"/>
+			    <node name="S25" value="25秒"/>
+			    <node name="S30" value="30秒"/>
+			    <node name="S60" value="一分"/>
+			    <node name="S120" value="两分"/>
+			</node>
 		</node>
 		<node name="tapZones" value="拍触区域">
 			<node name="summary" value="手指拍触动作设定"/>

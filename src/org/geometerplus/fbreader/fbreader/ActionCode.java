@@ -77,6 +77,6 @@ public interface ActionCode {
 	String SELECTION_TRANSLATE = "selectionTranslate";
 	String SELECTION_BOOKMARK = "selectionBookmark";
 	
-	String AUTO_NEXT_PAGE = "autoNextPage";
-	String AUTO_NEXT_PAGE_OFF = "autoNextPageOff";
+	String AUTO_BROWSE_ON = "autoNextPage";
+	String AUTO_BROWSE_OFF = "autoNextPageOff";
 }

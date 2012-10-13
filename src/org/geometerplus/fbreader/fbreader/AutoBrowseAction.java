@@ -1,12 +1,11 @@
 package org.geometerplus.fbreader.fbreader;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import org.geometerplus.fbreader.fbreader.FBAction;
 import org.geometerplus.fbreader.fbreader.FBReaderApp;
+import org.geometerplus.fbreader.fbreader.ScrollingPreferences.AutoBrowseInterval;
+import org.geometerplus.fbreader.fbreader.ScrollingPreferences.AutoBrowseUnit;
 
-class AutoBrowseAction extends FBAction {
+public class AutoBrowseAction extends FBAction {
 	private boolean actionOn = false;
 
 	AutoBrowseAction(FBReaderApp fbreader, boolean actionOn) {
@@ -14,36 +13,51 @@ class AutoBrowseAction extends FBAction {
 		this.actionOn = actionOn;
 	}
 
-	private static Timer timer;
-
 	@Override
 	public boolean isVisible() {
 		if (actionOn) {
-			if (timer==null) {
+			if (thread == null) {
 				return true;
 			}
-		}
-		else {
-			if (timer!=null) {
+		} else {
+			if (thread != null) {
 				return true;
 			}
 		}
 		return false;
 	}
 
+	private static AutoBrowseThread thread;
+
+	public boolean isAutoBrowsing() {
+		return !(thread == null);
+	}
+
 	@Override
 	protected void run(Object... params) {
-		if (timer == null) {
-			timer = new Timer();
-			timer.schedule(new TimerTask() {
-				@Override
-				public void run() {
-					FBReaderApp.Instance().StartAutoBrowse(3);
-				}
-			}, 1000, 1000);
+		if (thread == null) {
+			thread = new AutoBrowseThread();
+			AutoBrowseInterval intervalEnum = ScrollingPreferences.Instance().AutoBrowseIntervalOption
+					.getValue();
+			int interval = Integer.parseInt(intervalEnum.name()
+					.replace("S", "")) * 1000;
+			FBReaderApp.Instance().addTimerTask(thread, interval);
 		} else {
-			timer.cancel();
-			timer = null;
+			FBReaderApp.Instance().removeTimerTask(thread);
+			thread = null;
+		}
+
+	}
+
+	static class AutoBrowseThread implements Runnable {
+		@Override
+		public void run() {
+			FBReaderApp
+					.Instance()
+					.StartAutoBrowse(
+							ScrollingPreferences.Instance().AutoBrowseUnitOption
+									.getValue() == AutoBrowseUnit.Page ? FBView.ScrollingMode.SCROLL_PERCENTAGE
+									: FBView.ScrollingMode.SCROLL_LINES);
 		}
 	}
 }

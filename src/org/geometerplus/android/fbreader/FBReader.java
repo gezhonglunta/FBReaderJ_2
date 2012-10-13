@@ -446,8 +446,8 @@ public final class FBReader extends ZLAndroidActivity {
 		//addMenuItem(menu, ActionCode.SEARCH, R.drawable.ic_menu_search);
 		//addMenuItem(menu, ActionCode.SHARE_BOOK, R.drawable.ic_menu_search);
 		//开启自动阅读
-		addMenuItem(menu, ActionCode.AUTO_NEXT_PAGE);
-		addMenuItem(menu, ActionCode.AUTO_NEXT_PAGE_OFF);
+		addMenuItem(menu, ActionCode.AUTO_BROWSE_ON);
+		addMenuItem(menu, ActionCode.AUTO_BROWSE_OFF);
 		addMenuItem(menu, ActionCode.SHOW_PREFERENCES);
 		addMenuItem(menu, ActionCode.SHOW_BOOK_INFO);
 		final Menu subMenu = addSubMenu(menu, "screenOrientation");

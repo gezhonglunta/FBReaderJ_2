@@ -32,6 +32,17 @@ public class ScrollingPreferences {
 	public static enum FingerScrolling {
 		byTap, byFlick, byTapAndFlick
 	}
+	public static enum AutoBrowseUnit{
+		Row,Page
+	}
+	public static enum AutoBrowseInterval{
+		S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,S11,S12,S13,S14,S15,S20,S25,S30,S60,S120
+	}
+	public final ZLEnumOption<AutoBrowseUnit> AutoBrowseUnitOption =
+			new ZLEnumOption<AutoBrowseUnit>("Scrolling", "AutoBrowseUnit", AutoBrowseUnit.Row);
+	public final ZLEnumOption<AutoBrowseInterval> AutoBrowseIntervalOption =
+			new ZLEnumOption<AutoBrowseInterval>("Scrolling", "AutoBrowseUnit", AutoBrowseInterval.S1);
+	
 	public final ZLEnumOption<FingerScrolling> FingerScrollingOption =
 		new ZLEnumOption<FingerScrolling>("Scrolling", "Finger", FingerScrolling.byTapAndFlick);
 

@@ -19,6 +19,7 @@
 
 package org.geometerplus.zlibrary.ui.android.library;
 
+import junit.framework.Assert;
 import android.app.Application;
 
 import org.geometerplus.zlibrary.core.sqliteconfig.ZLSQLiteConfig;
@@ -28,6 +29,16 @@ import org.geometerplus.zlibrary.ui.android.image.ZLAndroidImageManager;
 
 public abstract class ZLAndroidApplication extends Application {
 	public ZLAndroidApplicationWindow myMainWindow;
+	private static ZLAndroidApplication instance;
+
+	public static ZLAndroidApplication Instance() {
+		return instance;
+	}
+
+	public ZLAndroidApplication() {
+		Assert.assertNull(instance);
+		instance = this;
+	}
 
 	@Override
 	public void onCreate() {

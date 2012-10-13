@@ -346,10 +346,10 @@ public class PreferenceActivity extends ZLPreferenceActivity {
 		final ZLKeyBindings keyBindings = fbReader.keyBindings();
 
 		final Screen scrollingScreen = createPreferenceScreen("scrolling");
-		scrollingScreen.addOption(scrollingPreferences.FingerScrollingOption, "fingerScrolling");
-		scrollingScreen.addOption(fbReader.EnableDoubleTapOption, "enableDoubleTapDetection");
 
-		final ZLPreferenceSet volumeKeysPreferences = new ZLPreferenceSet();
+		/*scrollingScreen.addOption(scrollingPreferences.FingerScrollingOption, "fingerScrolling");
+		scrollingScreen.addOption(fbReader.EnableDoubleTapOption, "enableDoubleTapDetection");*/
+		/*final ZLPreferenceSet volumeKeysPreferences = new ZLPreferenceSet();
 		scrollingScreen.addPreference(new ZLCheckBoxPreference(
 			this, scrollingScreen.Resource, "volumeKeys"
 		) {
@@ -391,8 +391,11 @@ public class PreferenceActivity extends ZLPreferenceActivity {
 				}
 			}
 		}));
-		volumeKeysPreferences.setEnabled(fbReader.hasActionForKey(KeyEvent.KEYCODE_VOLUME_UP, false));
-
+		volumeKeysPreferences.setEnabled(fbReader.hasActionForKey(KeyEvent.KEYCODE_VOLUME_UP, false));*/
+		//自动翻阅
+		scrollingScreen.addOption(scrollingPreferences.AutoBrowseUnitOption, "autoBrowseUnit");
+		scrollingScreen.addOption(scrollingPreferences.AutoBrowseIntervalOption, "autoBrowseInterval");
+		
 		scrollingScreen.addOption(scrollingPreferences.AnimationOption, "animation");
 		scrollingScreen.addPreference(new AnimationSpeedPreference(
 			this,

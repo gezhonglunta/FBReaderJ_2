@@ -31,6 +31,7 @@ import org.geometerplus.zlibrary.core.view.ZLView.Direction;
 
 import org.geometerplus.zlibrary.text.hyphenation.ZLTextHyphenator;
 import org.geometerplus.zlibrary.text.view.*;
+import org.geometerplus.zlibrary.ui.android.library.ZLAndroidApplication;
 
 import org.geometerplus.fbreader.bookmodel.BookModel;
 import org.geometerplus.fbreader.bookmodel.BookReadingException;
@@ -137,14 +138,14 @@ public final class FBReaderApp extends ZLApplication {
 		addAction(ActionCode.MOVE_CURSOR_LEFT, new MoveCursorAction(this, FBView.Direction.rightToLeft));
 		addAction(ActionCode.MOVE_CURSOR_RIGHT, new MoveCursorAction(this, FBView.Direction.leftToRight));
 
-		addAction(ActionCode.VOLUME_KEY_SCROLL_FORWARD, new VolumeKeyTurnPageAction(this, true));
+		addAction(ActionCode.VOLUME_KEY_SCROLL_FORWARD, new VolumeKeyTurnPageAction(this, false));
 		addAction(ActionCode.VOLUME_KEY_SCROLL_BACK, new VolumeKeyTurnPageAction(this, false));
 		//关闭白底黑字/黑底白字设置
 		//addAction(ActionCode.SWITCH_TO_DAY_PROFILE, new SwitchProfileAction(this, ColorProfile.DAY));
 		//addAction(ActionCode.SWITCH_TO_NIGHT_PROFILE, new SwitchProfileAction(this, ColorProfile.NIGHT));
-
-		addAction(ActionCode.AUTO_NEXT_PAGE, new AutoBrowseAction(this, true));
-		addAction(ActionCode.AUTO_NEXT_PAGE_OFF, new AutoBrowseAction(this, false));
+		autoBrowseOffAction = new AutoBrowseAction(this, false);
+		addAction(ActionCode.AUTO_BROWSE_ON, new AutoBrowseAction(this, true));
+		addAction(ActionCode.AUTO_BROWSE_OFF, autoBrowseOffAction);
 		
 		addAction(ActionCode.EXIT, new ExitAction(this));
 
@@ -438,6 +439,8 @@ public final class FBReaderApp extends ZLApplication {
 	}
 
 	public void runCancelAction(int index) {
+		//关闭自动浏览
+		StopAutoBrowse();
 		if (index < 0 || index >= myCancelActionsList.size()) {
 			return;
 		}
@@ -544,12 +547,22 @@ public final class FBReaderApp extends ZLApplication {
 			FBReaderApp.this, Direction.down);
 	final TurnPageAction autoNextPageAction = new TurnPageAction(
 			FBReaderApp.this, true);
+	final private AutoBrowseAction autoBrowseOffAction;
 
 	public void StartAutoBrowse(int mode) {
 		if (mode == FBView.ScrollingMode.SCROLL_PERCENTAGE) {
 			autoNextPageAction.run();
 		} else {
 			autoNextRowAction.run();
+		}
+	}
+
+	public void StopAutoBrowse() {
+		if (autoBrowseOffAction != null && autoBrowseOffAction.isAutoBrowsing()) {
+			autoBrowseOffAction.run();
+			if (ZLAndroidApplication.Instance() != null) {
+				ZLAndroidApplication.Instance().myMainWindow.refresh();
+			}
 		}
 	}
 }
