@@ -143,8 +143,8 @@ public final class FBReaderApp extends ZLApplication {
 		//addAction(ActionCode.SWITCH_TO_DAY_PROFILE, new SwitchProfileAction(this, ColorProfile.DAY));
 		//addAction(ActionCode.SWITCH_TO_NIGHT_PROFILE, new SwitchProfileAction(this, ColorProfile.NIGHT));
 
-		addAction(ActionCode.AUTO_NEXT_PAGE, new AutoNextPageAction(this, false));
-		addAction(ActionCode.AUTO_NEXT_PAGE_OFF, new AutoNextPageAction(this, true));
+		addAction(ActionCode.AUTO_NEXT_PAGE, new AutoBrowseAction(this, true));
+		addAction(ActionCode.AUTO_NEXT_PAGE_OFF, new AutoBrowseAction(this, false));
 		
 		addAction(ActionCode.EXIT, new ExitAction(this));
 
@@ -540,10 +540,16 @@ public final class FBReaderApp extends ZLApplication {
 		return treeToSelect;
 	}
 	
-	final MoveCursorAction autoNextPageAction = new MoveCursorAction(
+	final MoveCursorAction autoNextRowAction = new MoveCursorAction(
 			FBReaderApp.this, Direction.down);
+	final TurnPageAction autoNextPageAction = new TurnPageAction(
+			FBReaderApp.this, true);
 
-	public void StartAutoNextPage() {
-		autoNextPageAction.run();
+	public void StartAutoBrowse(int mode) {
+		if (mode == FBView.ScrollingMode.SCROLL_PERCENTAGE) {
+			autoNextPageAction.run();
+		} else {
+			autoNextRowAction.run();
+		}
 	}
 }

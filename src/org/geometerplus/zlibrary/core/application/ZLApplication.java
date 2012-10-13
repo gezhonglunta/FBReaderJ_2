@@ -177,7 +177,10 @@ public abstract class ZLApplication {
 	}
 
 	public abstract void openFile(ZLFile file, Runnable postAction);
-
+	/**
+	 * 自动浏览
+	 */
+	public abstract void StartAutoBrowse(int mode);
 	//Action
 	static abstract public class ZLAction {
 		public boolean isVisible() {

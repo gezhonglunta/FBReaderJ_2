@@ -6,31 +6,29 @@ import java.util.TimerTask;
 import org.geometerplus.fbreader.fbreader.FBAction;
 import org.geometerplus.fbreader.fbreader.FBReaderApp;
 
-import android.R.bool;
+class AutoBrowseAction extends FBAction {
+	private boolean actionOn = false;
 
-class AutoNextPageAction extends FBAction {
-	private boolean isOn = false;
-
-	AutoNextPageAction(FBReaderApp fbreader, boolean isOn) {
+	AutoBrowseAction(FBReaderApp fbreader, boolean actionOn) {
 		super(fbreader);
-		this.isOn = isOn;
+		this.actionOn = actionOn;
 	}
 
 	private static Timer timer;
 
 	@Override
 	public boolean isVisible() {
-		if (isOn) {
+		if (actionOn) {
 			if (timer==null) {
-				return false;
+				return true;
 			}
 		}
 		else {
 			if (timer!=null) {
-				return false;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	@Override
@@ -40,7 +38,7 @@ class AutoNextPageAction extends FBAction {
 			timer.schedule(new TimerTask() {
 				@Override
 				public void run() {
-					((FBReaderApp) FBReaderApp.Instance()).StartAutoNextPage();
+					FBReaderApp.Instance().StartAutoBrowse(3);
 				}
 			}, 1000, 1000);
 		} else {
