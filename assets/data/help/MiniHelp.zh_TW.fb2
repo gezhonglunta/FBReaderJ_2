@@ -1,16 +1,15 @@
-<?xml version="'.0" encoding="utf-"?>
-<FictionBook xmlns="http://www.gribuser.ru/xml/fictionbook/;.0" xmlns:l="http://www.w.org/'/xlink"><description><title-info><author><last-name>LXZKimage</last-name></author> <book-title>關于LXZKimage</book-title> <lang>zh</lang></title-info></description>
+<?xml version="1.0" encoding="utf-8"?>
+<FictionBook xmlns="http://www.gribuser.ru/xml/fictionbook/2.0" xmlns:l="http://www.w3.org/1999/xlink"><description><title-info><author><last-name>LXZKimage</last-name></author> <book-title>關於LXZKimage</book-title> <lang>zh</lang></title-info></description>
 <body>
-<title><p>關于LXZKimage &FBReaderVersion;</p></title>
-<p>LXZKimage是一款基于Android平台的電子書閱讀軟件。LXZKimage支持多種電子書格式：如<code>oeb</code>,<code>epub</code>,<code>fb;</code></p>
-<p>通過LXZKimage閱讀軟件，您可以享受更多的閱讀樂趣。您可以根據需要任意設置顔色，字體，按鍵綁定或者是更改對話框中的其他屬性。</p>
+<title><p>關於LXZKimage &FBReaderVersion;</p></title>
+<p>LXZKimage是壹款基於Android平臺的電子書閱讀軟件。LXZKimage支持多種電子書格式：如<code>oeb</code>,<code>epub</code>,<code>fb2</code>,<code>txt</code></p>
+<p>通過LXZKimage閱讀軟件，您可以享受更多的閱讀樂趣。您可以根據需要任意設置顏色，字體，按鍵綁定或者是更改對話框中的其他屬性。</p>
 <empty-line/>
 <subtitle><p>如何使用LXZKimage</p></subtitle>
 <p>有三種方法可以將書加入LXZKimage的書庫。</p>
-<p>第一種方法是將圖書文件複制到您的設備目錄中/SD卡/書籍（或任何其子目錄）。 LXZKimage將自動添加此書。</p>
-<p>第二種方法是點擊標准Android浏覽器中的圖書鏈接（如帶有<code>ePub</code>，<code>oeb</code>，<code>fb;</code>或<code>fb;.zip</code>等擴展名的文件鏈接。）圖書將會被下載到設備中並且用LXZKimage打開。如果你再次點擊相同的鏈接，圖書不會重複下載，本地閱讀本將供閱讀。</p>
+<p>第壹種方法是將圖書文件復制到您的設備目錄中/SD卡/書籍（或任何其子目錄）。 LXZKimage將自動添加此書。</p>
+<p>第二種方法是點擊標準Android瀏覽器中的圖書鏈接（如帶有<code>ePub</code>，<code>oeb</code>，<code>fb2</code>或<code>fb2.zip</code>等擴展名的文件鏈接。）圖書將會被下載到設備中並且用LXZKimage打開。如果妳再次點擊相同的鏈接，圖書不會重復下載，本地閱讀本將供閱讀。</p>
 <p>第三種方法是使用內置的在線書庫，直接從中下載並閱讀。</p>
 <empty-line/>
-<subtitle><p>相關網站</p></subtitle>
 </body>
 </FictionBook>
