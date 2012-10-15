@@ -89,7 +89,8 @@ abstract class ZLTextViewBase extends ZLView {
 	public abstract ZLColor getSelectedForegroundColor();
 	public abstract ZLColor getTextColor(ZLTextHyperlink hyperlink);
 	public abstract ZLColor getHighlightingColor();
-
+	public abstract boolean isEndOfBook();
+	
 	ZLPaintContext.Size getTextAreaSize() {
 		return new ZLPaintContext.Size(getTextAreaWidth(), getTextAreaHeight());
 	}

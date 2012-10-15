@@ -52,12 +52,15 @@ public class AutoBrowseAction extends FBAction {
 	static class AutoBrowseThread implements Runnable {
 		@Override
 		public void run() {
-			FBReaderApp
+			boolean result= FBReaderApp
 					.Instance()
 					.StartAutoBrowse(
 							ScrollingPreferences.Instance().AutoBrowseUnitOption
 									.getValue() == AutoBrowseUnit.Page ? FBView.ScrollingMode.SCROLL_PERCENTAGE
 									: FBView.ScrollingMode.SCROLL_LINES);
+			if (!result) {
+				FBReaderApp.Instance().StopAutoBrowse();
+			}
 		}
 	}
 }

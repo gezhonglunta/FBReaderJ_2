@@ -180,7 +180,8 @@ public abstract class ZLApplication {
 	/**
 	 * 自动浏览
 	 */
-	public abstract void StartAutoBrowse(int mode);
+	public abstract boolean StartAutoBrowse(int mode);
+	public abstract void StopAutoBrowse();
 	//Action
 	static abstract public class ZLAction {
 		public boolean isVisible() {

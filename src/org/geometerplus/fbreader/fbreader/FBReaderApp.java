@@ -549,12 +549,13 @@ public final class FBReaderApp extends ZLApplication {
 			FBReaderApp.this, true);
 	final private AutoBrowseAction autoBrowseOffAction;
 
-	public void StartAutoBrowse(int mode) {
+	public boolean StartAutoBrowse(int mode) {
 		if (mode == FBView.ScrollingMode.SCROLL_PERCENTAGE) {
 			autoNextPageAction.run();
 		} else {
 			autoNextRowAction.run();
 		}
+		return !BookTextView.isEndOfBook();//已经结尾了返回false
 	}
 
 	public void StopAutoBrowse() {

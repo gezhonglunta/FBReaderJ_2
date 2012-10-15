@@ -27,6 +27,7 @@ import android.content.*;
 import android.view.*;
 import android.os.PowerManager;
 
+import org.geometerplus.fbreader.fbreader.FBReaderApp;
 import org.geometerplus.zlibrary.core.application.ZLApplication;
 import org.geometerplus.zlibrary.core.filesystem.ZLFile;
 
@@ -199,6 +200,7 @@ public abstract class ZLAndroidActivity extends Activity {
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		FBReaderApp.Instance().StopAutoBrowse();//关闭自动阅读
 		View view = findViewById(R.id.main_view);
 		return ((view != null) && view.onKeyDown(keyCode, event)) || super.onKeyDown(keyCode, event);
 	}

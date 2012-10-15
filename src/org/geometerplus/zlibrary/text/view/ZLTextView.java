@@ -1581,4 +1581,13 @@ public abstract class ZLTextView extends ZLTextViewBase {
 			}
 		}
 	}
+
+	@Override
+	public final boolean isEndOfBook() {
+		if (myCurrentPage.EndCursor.getParagraphCursor().isLast()
+				|| myCurrentPage.EndCursor.isEndOfParagraph()) {
+			return true;
+		}
+		return false;
+	}
 }
