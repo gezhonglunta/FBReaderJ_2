@@ -32,7 +32,7 @@ public class ZLTextBaseStyle extends ZLTextStyle {
 	private static final String OPTIONS = "Options";
 
 	public final ZLBooleanOption AutoHyphenationOption =
-		new ZLBooleanOption(OPTIONS, "AutoHyphenation", true);
+		new ZLBooleanOption(OPTIONS, "AutoHyphenation", false);
 
 	public final ZLBooleanOption BoldOption =
 		new ZLBooleanOption(GROUP, "Base:bold", false);
