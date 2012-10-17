@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/book_edit"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:id="@+id/bookEditTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignTop="@layout/book_edit"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="false"
+        android:layout_marginTop="22dp" />
+    <EditText
+        android:id="@+id/bookEditContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/bookEditTitle"
+        android:autoLink="none"
+        android:inputType="text"
+        android:longClickable="false"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbars="vertical"
+        android:singleLine="false" />
+    <Button
+        android:id="@+id/book_edit_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bookEditTitle"
+        android:layout_alignParentRight="true" />
+</RelativeLayout>

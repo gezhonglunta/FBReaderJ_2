@@ -61,6 +61,7 @@ public final class FBReader extends ZLAndroidActivity {
 	public static final int RESULT_DO_NOTHING = RESULT_FIRST_USER;
 	public static final int RESULT_REPAINT = RESULT_FIRST_USER + 1;
 	public static final int RESULT_RELOAD_BOOK = RESULT_FIRST_USER + 2;
+	public static final int RESULT_RELOAD_BOOK_ALL = RESULT_FIRST_USER + 3;
 
 	private int myFullScreenFlag;
 
@@ -140,6 +141,8 @@ public final class FBReader extends ZLAndroidActivity {
 		}
 		
 		fbReader.addAction(ActionCode.SHOW_LIBRARY, new ShowLibraryAction(this, fbReader));
+		// 编辑功能
+		fbReader.addAction(ActionCode.BOOK_EDIT, new ShowBookEditAction(this, fbReader));
 		fbReader.addAction(ActionCode.SHOW_PREFERENCES, new ShowPreferencesAction(this, fbReader));
 		fbReader.addAction(ActionCode.SHOW_BOOK_INFO, new ShowBookInfoAction(this, fbReader));
 		fbReader.addAction(ActionCode.SHOW_TOC, new ShowTOCAction(this, fbReader));
@@ -392,6 +395,9 @@ public final class FBReader extends ZLAndroidActivity {
 			case RESULT_RELOAD_BOOK:
 				fbReader.reloadBook();
 				break;
+			case RESULT_RELOAD_BOOK_ALL:
+				fbReader.reloadBookAll();
+				break;
 		}
 	}
 
@@ -436,6 +442,8 @@ public final class FBReader extends ZLAndroidActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		addMenuItem(menu, ActionCode.SHOW_LIBRARY, R.drawable.ic_menu_library);
+		// 编辑功能
+		addMenuItem(menu, ActionCode.BOOK_EDIT);
 		addMenuItem(menu, ActionCode.SHOW_NETWORK_LIBRARY, R.drawable.ic_menu_networklibrary);
 		addMenuItem(menu, ActionCode.SHOW_TOC, R.drawable.ic_menu_toc);
 		addMenuItem(menu, ActionCode.SHOW_BOOKMARKS, R.drawable.ic_menu_bookmarks);

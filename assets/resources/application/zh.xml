@@ -221,6 +221,7 @@
 	</node>
 	<node name="menu">
 	    <node name="autoNextPage" value="开启自动翻阅"/>
+	    <node name="bookEdit" value="编辑"/>
 	    <node name="autoNextPageOff" value="关闭自动翻阅"/>
 		<node name="preferences" value="阅读相关设置"/>
 		<node name="bookInfo" value="书籍信息"/>
@@ -721,6 +722,7 @@
 			<node name="authorize" value="授权"/>
 			<node name="resetPosition" value="重置位置"/>
 			<node name="sendReport" value="发送报告"/>
+			<node name="saveBook" value="保存"/>
 		</node>
 		<node name="plugin">
 			<node name="installTitle" value="安装插件"/>

@@ -175,6 +175,19 @@ public final class FBReaderApp extends ZLApplication {
 			}, null);
 		}
 	}
+	
+	public void reloadBookAll() {
+		if (Model != null && Model.Book != null) {
+			Model.Book.reloadInfoFromDatabase();
+			runWithMessage("loadingBook", new Runnable() {
+				public void run() {
+					Book book=Model.Book;
+					Model=null;
+					openBookInternal(book, null);
+				}
+			}, null);
+		}
+	}
 
 	private ColorProfile myColorProfile;
 
