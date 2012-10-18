@@ -11,7 +11,12 @@
         android:layout_alignTop="@layout/book_edit"
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="false"
-        android:layout_marginTop="22dp" />
+        android:layout_marginTop="5dp" />
+    <Button
+        android:id="@+id/book_edit_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true" />
     <EditText
         android:id="@+id/bookEditContent"
         android:layout_width="wrap_content"
@@ -19,17 +24,10 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@id/bookEditTitle"
+        android:layout_below="@+id/book_edit_save"
         android:autoLink="none"
-        android:inputType="text"
+        android:gravity="center_vertical|top"
+        android:inputType="text|textMultiLine"
         android:longClickable="false"
-        android:scrollbarStyle="insideOverlay"
-        android:scrollbars="vertical"
         android:singleLine="false" />
-    <Button
-        android:id="@+id/book_edit_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bookEditTitle"
-        android:layout_alignParentRight="true" />
 </RelativeLayout>

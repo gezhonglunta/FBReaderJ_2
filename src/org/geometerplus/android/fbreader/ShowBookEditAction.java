@@ -12,12 +12,13 @@ public class ShowBookEditAction extends FBAndroidAction {
 
 	@Override
 	public boolean isEnabled() {
-		return true;
-	}
-
-	@Override
-	public boolean isVisible() {
-		return true;
+		if (Reader.Model != null && Reader.Model.Book != null) {
+			String extension = Reader.Model.Book.File.getExtension();
+			if (extension != null && extension.toUpperCase().equals("TXT")) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@Override
