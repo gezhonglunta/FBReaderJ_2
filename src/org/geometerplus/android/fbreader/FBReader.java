@@ -441,11 +441,14 @@ public final class FBReader extends ZLAndroidActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
-		addMenuItem(menu, ActionCode.SHOW_LIBRARY, R.drawable.ic_menu_library);
 		// 编辑功能
 		addMenuItem(menu, ActionCode.BOOK_EDIT);
+		//开启自动阅读
+		addMenuItem(menu, ActionCode.AUTO_BROWSE_ON);
+		addMenuItem(menu, ActionCode.AUTO_BROWSE_OFF);
+		addMenuItem(menu, ActionCode.SHOW_LIBRARY, R.drawable.ic_menu_library);
 		addMenuItem(menu, ActionCode.SHOW_NETWORK_LIBRARY, R.drawable.ic_menu_networklibrary);
-		addMenuItem(menu, ActionCode.SHOW_TOC, R.drawable.ic_menu_toc);
+		//addMenuItem(menu, ActionCode.SHOW_TOC, R.drawable.ic_menu_toc);
 		addMenuItem(menu, ActionCode.SHOW_BOOKMARKS, R.drawable.ic_menu_bookmarks);
 		//移出白底黑字/黑底白字设置
 		//addMenuItem(menu, ActionCode.SWITCH_TO_NIGHT_PROFILE, R.drawable.ic_menu_night);
@@ -453,9 +456,6 @@ public final class FBReader extends ZLAndroidActivity {
 		//关闭搜索菜单
 		//addMenuItem(menu, ActionCode.SEARCH, R.drawable.ic_menu_search);
 		//addMenuItem(menu, ActionCode.SHARE_BOOK, R.drawable.ic_menu_search);
-		//开启自动阅读
-		addMenuItem(menu, ActionCode.AUTO_BROWSE_ON);
-		addMenuItem(menu, ActionCode.AUTO_BROWSE_OFF);
 		addMenuItem(menu, ActionCode.SHOW_PREFERENCES);
 		addMenuItem(menu, ActionCode.SHOW_BOOK_INFO);
 		final Menu subMenu = addSubMenu(menu, "screenOrientation");

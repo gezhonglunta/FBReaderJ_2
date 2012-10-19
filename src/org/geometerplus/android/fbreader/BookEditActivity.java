@@ -10,8 +10,10 @@ import org.geometerplus.fbreader.fbreader.FBReaderApp;
 import org.geometerplus.fbreader.library.Book;
 import org.geometerplus.zlibrary.core.resources.ZLResource;
 
+import android.R.bool;
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -29,11 +31,11 @@ public class BookEditActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.book_edit);
 		txtTitle = (TextView) findViewById(R.id.bookEditTitle);
 		editContent = (EditText) findViewById(R.id.bookEditContent);
-		final ZLResource buttonResource = ZLResource.resource("dialog")
-				.getResource("button");
-		final Button button = (Button) findViewById(R.id.book_edit_save);
-		button.setText(buttonResource.getResource("saveBook").getValue());
-		button.setOnClickListener(this);
+		// final ZLResource buttonResource = ZLResource.resource("dialog")
+		// .getResource("button");
+		// final Button button = (Button) findViewById(R.id.book_edit_save);
+		// button.setText(buttonResource.getResource("saveBook").getValue());
+		// button.setOnClickListener(this);
 		txtTitle.setText("文本编辑");
 		setResult(FBReader.RESULT_RELOAD_BOOK_ALL);
 		LoadBook();
@@ -64,7 +66,22 @@ public class BookEditActivity extends Activity implements OnClickListener {
 		try {
 			BufferedWriter stream = new BufferedWriter(new FileWriter(
 					book.File.getPath()));
-			stream.write(editContent.getText().toString());
+			Editable text = editContent.getText();
+			// if (text != null) {
+			// final char d = 0x0d;
+			// final char a = 0x0a;
+			// char last = 0;
+			// for (int i = 0; i < text.length(); i++) {
+			// char ch = text.charAt(i);
+			// if (ch == a) {
+			// if (last == 0 || last != d) {
+			// text.insert(i, "\r");
+			// }
+			// }
+			// last = ch;
+			// }
+			// }
+			stream.write(text.toString());
 			stream.flush();
 			stream.close();
 		} catch (IOException e) {
@@ -77,4 +94,9 @@ public class BookEditActivity extends Activity implements OnClickListener {
 		SaveBook();
 	}
 
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		SaveBook();
+	}
 }
