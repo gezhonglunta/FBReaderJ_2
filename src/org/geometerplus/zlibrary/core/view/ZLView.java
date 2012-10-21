@@ -19,6 +19,7 @@
 
 package org.geometerplus.zlibrary.core.view;
 
+import org.geometerplus.fbreader.fbreader.FBReaderApp;
 import org.geometerplus.zlibrary.core.application.ZLApplication;
 
 abstract public class ZLView {
@@ -108,7 +109,8 @@ abstract public class ZLView {
 	}
 
 	public boolean onFingerSingleTap(int x, int y) {
-		return false;
+		FBReaderApp.Instance().StopAutoBrowse();//关闭自动阅读
+		return true;
 	}
 
 	public boolean onFingerDoubleTap(int x, int y) {
