@@ -56,7 +56,7 @@ public class ZLAndroidWidget extends View implements ZLViewWidget, View.OnLongCl
 		// after any dialog was closed
 		setFocusableInTouchMode(true);
 		setDrawingCacheEnabled(false);
-		setOnLongClickListener(this);
+		//setOnLongClickListener(this);
 	}
 
 	@Override
