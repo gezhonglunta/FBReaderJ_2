@@ -824,4 +824,9 @@
 		<node name="unsupportedFileFormat" value="File format is not supported for '%s'" toBeTranslated="true"/>
 		<node name="errorParsingRtf" value="Rtf parsing error in: %s" toBeTranslated="true"/>
 	</node>
+	<node name="messageBoxStr">
+	    <node name="mess" value="提示"/>
+	    <node name="Warn" value="警告"/>
+	    <node name="fileTooBig" value="大小超過1M的文件無法編輯，請在PC上編輯!"/>
+	</node>
 </resources>

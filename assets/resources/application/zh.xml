@@ -848,4 +848,9 @@
 		<node name="unsupportedFileFormat" value="文件格式 '%s' 不支持"/>
 		<node name="errorParsingRtf" value="Rtf解析错误: %s"/>
 	</node>
+	<node name="messageBoxStr">
+	    <node name="mess" value="提示"/>
+	    <node name="Warn" value="警告"/>
+	    <node name="fileTooBig" value="大小超过1M的文件无法编辑，请在PC上编辑!"/>
+	</node>
 </resources>

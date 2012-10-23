@@ -8,15 +8,11 @@ import org.LXZKimage.R;
 import org.geometerplus.fbreader.bookmodel.BookModel;
 import org.geometerplus.fbreader.fbreader.FBReaderApp;
 import org.geometerplus.fbreader.library.Book;
-import org.geometerplus.zlibrary.core.resources.ZLResource;
-
-import android.R.bool;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 

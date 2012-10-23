@@ -139,6 +139,9 @@ public final class FBReader extends ZLAndroidActivity {
 		if (fbReader.getPopupById(SelectionPopup.ID) == null) {
 			new SelectionPopup(fbReader);
 		}
+		if (fbReader.getPopupById(ShowMessagePopup.ID) == null) {
+			new ShowMessagePopup(fbReader);
+		}
 		
 		fbReader.addAction(ActionCode.SHOW_LIBRARY, new ShowLibraryAction(this, fbReader));
 		// 编辑功能
@@ -262,6 +265,7 @@ public final class FBReader extends ZLAndroidActivity {
 		((PopupPanel)fbReader.getPopupById(TextSearchPopup.ID)).setPanelInfo(this, root);
 		((PopupPanel)fbReader.getPopupById(NavigationPopup.ID)).setPanelInfo(this, root);
 		((PopupPanel)fbReader.getPopupById(SelectionPopup.ID)).setPanelInfo(this, root);
+		((PopupPanel)fbReader.getPopupById(ShowMessagePopup.ID)).setPanelInfo(this, root);
 	}
 
 	private void initPluginActions() {
@@ -418,6 +422,10 @@ public final class FBReader extends ZLAndroidActivity {
 		((NavigationPopup)FBReaderApp.Instance().getPopupById(NavigationPopup.ID)).runNavigation();
 	}
 
+	public void showMessage(String mess) {
+		((ShowMessagePopup)FBReaderApp.Instance().getPopupById(ShowMessagePopup.ID)).show(mess);
+	}
+	
 	private Menu addSubMenu(Menu menu, String id) {
 		final ZLAndroidApplication application = (ZLAndroidApplication)getApplication();
 		return application.myMainWindow.addSubMenu(menu, id);

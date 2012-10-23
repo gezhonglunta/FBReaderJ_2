@@ -829,4 +829,9 @@
 		<node name="unsupportedFileFormat" value="File format is not supported for '%s'"/>
 		<node name="errorParsingRtf" value="Rtf parsing error in: %s"/>
 	</node>
+	<node name="messageBoxStr">
+	    <node name="mess" value="Tip"/>
+	    <node name="warn" value="Warn"/>
+	    <node name="fileTooBig" value="1M size exceeds the file can not be edited,please edited on the PC!"/>
+	</node>
 </resources>

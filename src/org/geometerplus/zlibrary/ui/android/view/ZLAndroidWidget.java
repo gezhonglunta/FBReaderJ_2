@@ -23,6 +23,7 @@ import android.content.Context;
 import android.graphics.*;
 import android.view.*;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import org.geometerplus.zlibrary.core.view.ZLView;
 import org.geometerplus.zlibrary.core.view.ZLViewWidget;
