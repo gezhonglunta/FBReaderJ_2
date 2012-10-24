@@ -566,8 +566,7 @@ public final class FBReaderApp extends ZLApplication {
 		if (mode == FBView.ScrollingMode.SCROLL_PERCENTAGE) {
 			autoNextPageAction.run();
 		} else {
-			
-			//autoNextRowAction.run();
+			autoNextRowAction.run();
 		}
 		return !BookTextView.isEndOfBook();//已经结尾了返回false
 	}

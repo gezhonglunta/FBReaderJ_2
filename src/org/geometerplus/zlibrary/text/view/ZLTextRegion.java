@@ -93,16 +93,18 @@ public final class ZLTextRegion {
 
 	public static Filter HyperlinkFilter = new Filter() {
 		public boolean accepts(ZLTextRegion region) {
-			return region.getSoul() instanceof ZLTextHyperlinkRegionSoul;
+			return false;
+			//return region.getSoul() instanceof ZLTextHyperlinkRegionSoul;
 		}
 	};
 
 	public static Filter ImageOrHyperlinkFilter = new Filter() {
 		public boolean accepts(ZLTextRegion region) {
-			final Soul soul = region.getSoul();
-			return
-				soul instanceof ZLTextImageRegionSoul ||
-				soul instanceof ZLTextHyperlinkRegionSoul;
+			return false;
+			//final Soul soul = region.getSoul();
+			//return
+				//soul instanceof ZLTextImageRegionSoul ||
+				//soul instanceof ZLTextHyperlinkRegionSoul;
 		}
 	};
 

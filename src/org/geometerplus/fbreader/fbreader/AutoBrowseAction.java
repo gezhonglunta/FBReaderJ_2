@@ -52,7 +52,7 @@ public class AutoBrowseAction extends FBAction {
 	static class AutoBrowseThread implements Runnable {
 		@Override
 		public void run() {
-			boolean result= FBReaderApp
+			boolean result = FBReaderApp
 					.Instance()
 					.StartAutoBrowse(
 							ScrollingPreferences.Instance().AutoBrowseUnitOption
