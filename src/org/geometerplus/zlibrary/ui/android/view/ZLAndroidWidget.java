@@ -25,6 +25,7 @@ import android.view.*;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import org.geometerplus.android.fbreader.BluetoothDeviceHelper;
 import org.geometerplus.zlibrary.core.view.ZLView;
 import org.geometerplus.zlibrary.core.view.ZLViewWidget;
 import org.geometerplus.zlibrary.core.application.ZLApplication;
@@ -302,6 +303,9 @@ public class ZLAndroidWidget extends View implements ZLViewWidget, View.OnLongCl
 	private boolean myScreenIsTouched;
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
+		if (!BluetoothDeviceHelper.Instance().hasBluetoothMouse()) {
+			return true;
+		}
 		int x = (int)event.getX();
 		int y = (int)event.getY();
 
