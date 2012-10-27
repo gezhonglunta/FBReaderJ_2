@@ -395,6 +395,10 @@ public class ZLAndroidWidget extends View implements ZLViewWidget, View.OnLongCl
 	private long myTrackingStartTime;
 
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (!BluetoothDeviceHelper.Instance().hasBluetoothMouse()) {
+			return true;
+		}
+		
 		final ZLApplication application = ZLApplication.Instance();
 
 		if (application.hasActionForKey(keyCode, true) ||
@@ -419,6 +423,10 @@ public class ZLAndroidWidget extends View implements ZLViewWidget, View.OnLongCl
 	}
 
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
+		if (!BluetoothDeviceHelper.Instance().hasBluetoothMouse()) {
+			return true;
+		}
+		
 		if (myKeyUnderTracking != -1) {
 			if (myKeyUnderTracking == keyCode) {
 				final boolean longPress = System.currentTimeMillis() >

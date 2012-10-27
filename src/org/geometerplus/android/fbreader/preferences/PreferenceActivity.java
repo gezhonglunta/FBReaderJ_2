@@ -404,33 +404,33 @@ public class PreferenceActivity extends ZLPreferenceActivity {
 		));
 		scrollingScreen.addOption(scrollingPreferences.HorizontalOption, "horizontal");
 
-		final Screen dictionaryScreen = createPreferenceScreen("dictionary");
-		dictionaryScreen.addPreference(new DictionaryPreference(
-			this,
-			dictionaryScreen.Resource,
-			"dictionary",
-			DictionaryUtil.singleWordTranslatorOption(),
-			DictionaryUtil.dictionaryInfos(this, true)
-		));
-		dictionaryScreen.addPreference(new DictionaryPreference(
-			this,
-			dictionaryScreen.Resource,
-			"translator",
-			DictionaryUtil.multiWordTranslatorOption(),
-			DictionaryUtil.dictionaryInfos(this, false)
-		));
-		dictionaryScreen.addPreference(new ZLBooleanPreference(
-			this,
-			fbReader.NavigateAllWordsOption,
-			dictionaryScreen.Resource,
-			"navigateOverAllWords"
-		));
-		dictionaryScreen.addOption(fbReader.WordTappingActionOption, "tappingAction");
+//		final Screen dictionaryScreen = createPreferenceScreen("dictionary");
+//		dictionaryScreen.addPreference(new DictionaryPreference(
+//			this,
+//			dictionaryScreen.Resource,
+//			"dictionary",
+//			DictionaryUtil.singleWordTranslatorOption(),
+//			DictionaryUtil.dictionaryInfos(this, true)
+//		));
+//		dictionaryScreen.addPreference(new DictionaryPreference(
+//			this,
+//			dictionaryScreen.Resource,
+//			"translator",
+//			DictionaryUtil.multiWordTranslatorOption(),
+//			DictionaryUtil.dictionaryInfos(this, false)
+//		));
+//		dictionaryScreen.addPreference(new ZLBooleanPreference(
+//			this,
+//			fbReader.NavigateAllWordsOption,
+//			dictionaryScreen.Resource,
+//			"navigateOverAllWords"
+//		));
+//		dictionaryScreen.addOption(fbReader.WordTappingActionOption, "tappingAction");
 
-		final Screen imagesScreen = createPreferenceScreen("images");
-		imagesScreen.addOption(fbReader.ImageTappingActionOption, "tappingAction");
-		imagesScreen.addOption(fbReader.FitImagesToScreenOption, "fitImagesToScreen");
-		imagesScreen.addOption(fbReader.ImageViewBackgroundOption, "backgroundColor");
+//		final Screen imagesScreen = createPreferenceScreen("images");
+//		imagesScreen.addOption(fbReader.ImageTappingActionOption, "tappingAction");
+//		imagesScreen.addOption(fbReader.FitImagesToScreenOption, "fitImagesToScreen");
+//		imagesScreen.addOption(fbReader.ImageViewBackgroundOption, "backgroundColor");
 
 		final Screen cancelMenuScreen = createPreferenceScreen("cancelMenu");
 		cancelMenuScreen.addOption(fbReader.ShowLibraryInCancelMenuOption, "library");

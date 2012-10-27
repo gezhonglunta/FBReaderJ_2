@@ -2,12 +2,14 @@ package org.geometerplus.android.fbreader;
 
 import java.util.Set;
 
+import org.geometerplus.fbreader.fbreader.FBReaderApp;
+
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 
 public class BluetoothDeviceHelper {
 	private static BluetoothDeviceHelper instance;
-	BluetoothAdapter adapter;
+	private boolean mhasBluetoothMouse;
 
 	public static BluetoothDeviceHelper Instance() {
 		if (instance == null) {
@@ -17,28 +19,41 @@ public class BluetoothDeviceHelper {
 	}
 
 	public BluetoothDeviceHelper() {
-		adapter = BluetoothAdapter.getDefaultAdapter();
-	}
-
-	public boolean isEnable() {
-		if (adapter == null) {
-			return false;
-		}
-		return adapter.isEnabled();
+		FBReaderApp.Instance()
+				.addTimerTask(new BluetoothMouseCheckTask(), 5000);
 	}
 
 	public boolean hasBluetoothMouse() {
-		if (isEnable()) {
-			Set<BluetoothDevice> pairedDevices = adapter.getBondedDevices();
-			if (pairedDevices != null) {
-				for (BluetoothDevice bluetoothDevice : pairedDevices) {
-					if ("Bluetooth Mouse".equals(bluetoothDevice.getName())
-							&& bluetoothDevice.getBondState() == BluetoothDevice.BOND_BONDING) {
-						return true;
+		return mhasBluetoothMouse;
+	}
+
+	private void setHasBluetoothMouse(boolean b) {
+		mhasBluetoothMouse = b;
+	}
+
+	public class BluetoothMouseCheckTask implements Runnable {
+		BluetoothAdapter adapter;
+
+		public BluetoothMouseCheckTask() {
+			adapter = BluetoothAdapter.getDefaultAdapter();
+		}
+
+		@Override
+		public void run() {
+			if (adapter.isEnabled()) {
+				Set<BluetoothDevice> pairedDevices = adapter.getBondedDevices();
+				if (pairedDevices != null) {
+					for (BluetoothDevice bluetoothDevice : pairedDevices) {
+						if ("Bluetooth Mouse".equals(bluetoothDevice.getName())
+								&& bluetoothDevice.getBondState() == BluetoothDevice.BOND_BONDED) {
+							BluetoothDeviceHelper.Instance()
+									.setHasBluetoothMouse(true);
+							return;
+						}
 					}
 				}
 			}
+			BluetoothDeviceHelper.Instance().setHasBluetoothMouse(false);
 		}
-		return false;
 	}
 }
