@@ -19,7 +19,6 @@
 
 package org.geometerplus.android.fbreader.preferences;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.os.Bundle;

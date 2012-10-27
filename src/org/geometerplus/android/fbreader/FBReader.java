@@ -40,6 +40,7 @@ import org.geometerplus.zlibrary.ui.android.view.AndroidFontUtil;
 
 import org.geometerplus.fbreader.fbreader.ActionCode;
 import org.geometerplus.fbreader.fbreader.FBReaderApp;
+import org.geometerplus.fbreader.fbreader.PassWordInput;
 import org.geometerplus.fbreader.bookmodel.BookModel;
 import org.geometerplus.fbreader.library.Book;
 import org.geometerplus.fbreader.tips.TipsManager;
@@ -177,6 +178,7 @@ public final class FBReader extends ZLAndroidActivity {
 			fbReader.addAction(ActionCode.SET_SCREEN_ORIENTATION_REVERSE_LANDSCAPE, new SetScreenOrientationAction(this, fbReader, ZLibrary.SCREEN_ORIENTATION_REVERSE_LANDSCAPE));
 		}
 		BluetoothDeviceHelper.Instance();
+		FBReader.fbReader=FBReader.this;
 	}
 
  	@Override
@@ -496,5 +498,11 @@ public final class FBReader extends ZLAndroidActivity {
 		application.myMainWindow.refresh();
 
 		return true;
+	}
+	
+	private static FBReader fbReader;
+	public static void ShowPassWordInput(){
+		PassWordInput input=new PassWordInput(fbReader);
+		input.show();
 	}
 }

@@ -244,7 +244,7 @@
 		<node name="shareBook" value="共享书籍"/>
 		<node name="search" value="内容查找"/>
 		<node name="rotate" value="翻转屏幕"/>
-		<node name="screenOrientation" value="屏幕方向"/>
+		<node name="screenOrientation" value="影像显示"/>
 		<node name="screenOrientationSystem" value="系统"/>
 		<node name="screenOrientationSensor" value="感知设备方向"/>
 		<node name="screenOrientationPortrait" value="竖直"/>
@@ -852,5 +852,6 @@
 	    <node name="mess" value="提示"/>
 	    <node name="Warn" value="警告"/>
 	    <node name="fileTooBig" value="大小超过1M的文件无法编辑，请在PC上编辑!"/>
+	    <node name="bluetoothNeed" value="该功能必须连接蓝牙鼠标才能使用!"/>
 	</node>
 </resources>

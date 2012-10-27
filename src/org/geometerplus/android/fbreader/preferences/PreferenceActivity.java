@@ -37,7 +37,6 @@ import org.geometerplus.fbreader.Paths;
 import org.geometerplus.fbreader.bookmodel.FBTextKind;
 
 import org.geometerplus.android.fbreader.FBReader;
-import org.geometerplus.android.fbreader.DictionaryUtil;
 
 public class PreferenceActivity extends ZLPreferenceActivity {
 	public PreferenceActivity() {

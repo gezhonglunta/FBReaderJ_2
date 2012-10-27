@@ -20,12 +20,12 @@
 package org.geometerplus.android.fbreader;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.pm.ActivityInfo;
 
 import org.geometerplus.zlibrary.core.library.ZLibrary;
+import org.geometerplus.zlibrary.core.resources.ZLResource;
 import org.geometerplus.zlibrary.core.util.ZLBoolean3;
-
-import org.geometerplus.zlibrary.ui.android.library.ZLAndroidApplication;
 
 import org.geometerplus.fbreader.fbreader.FBReaderApp;
 
@@ -38,9 +38,11 @@ class SetScreenOrientationAction extends FBAndroidAction {
 			orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 		} else if (ZLibrary.SCREEN_ORIENTATION_LANDSCAPE.equals(optionValue)) {
 			orientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-		} else if (ZLibrary.SCREEN_ORIENTATION_REVERSE_PORTRAIT.equals(optionValue)) {
+		} else if (ZLibrary.SCREEN_ORIENTATION_REVERSE_PORTRAIT
+				.equals(optionValue)) {
 			orientation = 9; // ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT
-		} else if (ZLibrary.SCREEN_ORIENTATION_REVERSE_LANDSCAPE.equals(optionValue)) {
+		} else if (ZLibrary.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
+				.equals(optionValue)) {
 			orientation = 8; // ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
 		}
 		activity.setRequestedOrientation(orientation);
@@ -48,21 +50,35 @@ class SetScreenOrientationAction extends FBAndroidAction {
 
 	private final String myOptionValue;
 
-	SetScreenOrientationAction(FBReader baseActivity, FBReaderApp fbreader, String optionValue) {
+	SetScreenOrientationAction(FBReader baseActivity, FBReaderApp fbreader,
+			String optionValue) {
 		super(baseActivity, fbreader);
 		myOptionValue = optionValue;
 	}
 
 	@Override
 	public ZLBoolean3 isChecked() {
-		return myOptionValue.equals(ZLibrary.Instance().OrientationOption.getValue())
-			? ZLBoolean3.B3_TRUE : ZLBoolean3.B3_FALSE;
+		return myOptionValue.equals(ZLibrary.Instance().OrientationOption
+				.getValue()) ? ZLBoolean3.B3_TRUE : ZLBoolean3.B3_FALSE;
 	}
 
 	@Override
-	protected void run(Object ... params) {
-		setOrientation(BaseActivity, myOptionValue);
-		ZLibrary.Instance().OrientationOption.setValue(myOptionValue);
-		Reader.onRepaintFinished();
+	protected void run(Object... params) {
+		if (!BluetoothDeviceHelper.Instance().hasBluetoothMouse()) {
+			final ZLResource resource = ZLResource.resource("messageBoxStr");
+			new AlertDialog.Builder(BaseActivity)
+					.setTitle(resource.getResource("mess").getValue())
+					.setMessage(resource.getResource("bluetoothNeed").getValue())
+					.show();
+		} else {
+			setOrientation(BaseActivity, myOptionValue);
+			ZLibrary.Instance().OrientationOption.setValue(myOptionValue);
+			Reader.onRepaintFinished();
+		}
 	}
+
+	//@Override
+	//public boolean isEnabled() {
+		//return BluetoothDeviceHelper.Instance().hasBluetoothMouse();
+	//}
 }

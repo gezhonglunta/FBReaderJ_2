@@ -28,17 +28,14 @@ public class BluetoothDeviceHelper {
 		return mhasBluetoothMouse;
 	}
 
-	private boolean isAutoBrowsing = false;
-
 	public void MouseLeftClick() {
-		if (isAutoBrowsing) {
+		if (FBReaderApp.Instance().isAutoBrowsing()) {
 			FBReaderApp.Instance().runAction(ActionCode.AUTO_BROWSE_OFF,
 					new Object[] {});
 		} else {
 			FBReaderApp.Instance().runAction(ActionCode.AUTO_BROWSE_ON,
 					new Object[] {});
 		}
-		isAutoBrowsing = !isAutoBrowsing;
 	}
 
 	public void MouseRightClick() {
@@ -53,7 +50,7 @@ public class BluetoothDeviceHelper {
 		mhasBluetoothMouse = b;
 	}
 
-	public class BluetoothMouseCheckTask implements Runnable {
+	private class BluetoothMouseCheckTask implements Runnable {
 		BluetoothAdapter adapter;
 
 		public BluetoothMouseCheckTask() {

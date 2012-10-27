@@ -561,6 +561,10 @@ public final class FBReaderApp extends ZLApplication {
 	final TurnPageAction autoNextPageAction = new TurnPageAction(
 			FBReaderApp.this, true);
 	final private AutoBrowseAction autoBrowseOffAction;
+	
+	public boolean isAutoBrowsing(){
+		return autoBrowseOffAction.isAutoBrowsing();
+	}
 
 	public boolean StartAutoBrowse(int mode) {
 		if (mode == FBView.ScrollingMode.SCROLL_PERCENTAGE) {

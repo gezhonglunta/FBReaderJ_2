@@ -182,6 +182,7 @@ public abstract class ZLApplication {
 	 */
 	public abstract boolean StartAutoBrowse(int mode);
 	public abstract void StopAutoBrowse();
+	public abstract boolean isAutoBrowsing();
 	//Action
 	static abstract public class ZLAction {
 		public boolean isVisible() {
