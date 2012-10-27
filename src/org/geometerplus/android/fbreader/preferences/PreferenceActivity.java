@@ -60,11 +60,11 @@ public class PreferenceActivity extends ZLPreferenceActivity {
 		directoriesScreen.addOption(Paths.WallpapersDirectoryOption(), "wallpapers");
 
 		final Screen appearanceScreen = createPreferenceScreen("appearance");
-		appearanceScreen.addPreference(new ZLStringChoicePreference(
+		/*appearanceScreen.addPreference(new ZLStringChoicePreference(
 			this, appearanceScreen.Resource, "screenOrientation",
 			androidLibrary.OrientationOption, androidLibrary.allOrientations()
-		));
-		appearanceScreen.addPreference(new ZLBooleanPreference(
+		));*/
+		/*appearanceScreen.addPreference(new ZLBooleanPreference(
 			this,
 			fbReader.AllowScreenBrightnessAdjustmentOption,
 			appearanceScreen.Resource,
@@ -77,7 +77,7 @@ public class PreferenceActivity extends ZLPreferenceActivity {
 				super.onClick();
 				androidLibrary.ScreenBrightnessLevelOption.setValue(isChecked() ? myLevel : 0);
 			}
-		});
+		});*/
 		appearanceScreen.addPreference(new BatteryLevelToTurnScreenOffPreference(
 			this,
 			androidLibrary.BatteryLevelToTurnScreenOffOption,

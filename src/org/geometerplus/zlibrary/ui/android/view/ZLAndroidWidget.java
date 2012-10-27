@@ -257,8 +257,21 @@ public class ZLAndroidWidget extends View implements ZLViewWidget, View.OnLongCl
 		drawFooter(canvas);
 	}
 
+	StringBuffer sbBuffer=new StringBuffer();
 	@Override
 	public boolean onTrackballEvent(MotionEvent event) {
+		sbBuffer.setLength(0);
+		sbBuffer.append("getAction:");
+		sbBuffer.append(event.getAction());
+		sbBuffer.append(";Pint:");
+		sbBuffer.append(new Point((int) event.getX(), (int) event.getY()));
+		sbBuffer.append("getActionMasked:");
+		sbBuffer.append(event.getActionMasked());
+		Log.e("MotionEvent", sbBuffer.toString());
+		if (event.getAction() == MotionEvent.ACTION_DOWN) {// 左键下落
+		} else if (event.getAction() == MotionEvent.ACTION_UP) {// 左键弹起
+		}
+		
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 			onKeyDown(KeyEvent.KEYCODE_DPAD_CENTER, null);
 		} else {
