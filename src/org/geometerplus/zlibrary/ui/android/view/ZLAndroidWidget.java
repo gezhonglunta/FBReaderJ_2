@@ -23,8 +23,6 @@ import android.content.Context;
 import android.graphics.*;
 import android.view.*;
 import android.util.AttributeSet;
-import android.util.Log;
-
 import org.geometerplus.android.fbreader.BluetoothDeviceHelper;
 import org.geometerplus.zlibrary.core.view.ZLView;
 import org.geometerplus.zlibrary.core.view.ZLViewWidget;
@@ -257,26 +255,24 @@ public class ZLAndroidWidget extends View implements ZLViewWidget, View.OnLongCl
 		drawFooter(canvas);
 	}
 
-	StringBuffer sbBuffer=new StringBuffer();
+	private boolean isLeftDown=false;
 	@Override
 	public boolean onTrackballEvent(MotionEvent event) {
-		sbBuffer.setLength(0);
-		sbBuffer.append("getAction:");
-		sbBuffer.append(event.getAction());
-		sbBuffer.append(";Pint:");
-		sbBuffer.append(new Point((int) event.getX(), (int) event.getY()));
-		sbBuffer.append("getActionMasked:");
-		sbBuffer.append(event.getActionMasked());
-		Log.e("MotionEvent", sbBuffer.toString());
-		if (event.getAction() == MotionEvent.ACTION_DOWN) {// 左键下落
-		} else if (event.getAction() == MotionEvent.ACTION_UP) {// 左键弹起
-		}
-		
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
-			onKeyDown(KeyEvent.KEYCODE_DPAD_CENTER, null);
-		} else {
-			ZLApplication.Instance().getCurrentView().onTrackballRotated((int)(10 * event.getX()), (int)(10 * event.getY()));
-		}
+			isLeftDown=true;
+		} else if (event.getAction() == MotionEvent.ACTION_UP) {
+			if (isLeftDown) {
+				BluetoothDeviceHelper.Instance().MouseLeftClick();
+			}
+			isLeftDown=false;
+		} //else if (event.getAction() == MotionEvent.ACTION_MOVE) {
+//
+//		}
+//		if (event.getAction() == MotionEvent.ACTION_DOWN) {
+//			onKeyDown(KeyEvent.KEYCODE_DPAD_CENTER, null);
+//		} else {
+//			ZLApplication.Instance().getCurrentView().onTrackballRotated((int)(10 * event.getX()), (int)(10 * event.getY()));
+//		}
 		return true;
 	}
 
@@ -316,9 +312,6 @@ public class ZLAndroidWidget extends View implements ZLViewWidget, View.OnLongCl
 	private boolean myScreenIsTouched;
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		if (!BluetoothDeviceHelper.Instance().hasBluetoothMouse()) {
-			return true;
-		}
 		int x = (int)event.getX();
 		int y = (int)event.getY();
 
@@ -408,10 +401,6 @@ public class ZLAndroidWidget extends View implements ZLViewWidget, View.OnLongCl
 	private long myTrackingStartTime;
 
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (!BluetoothDeviceHelper.Instance().hasBluetoothMouse()) {
-			return true;
-		}
-		
 		final ZLApplication application = ZLApplication.Instance();
 
 		if (application.hasActionForKey(keyCode, true) ||
@@ -436,10 +425,6 @@ public class ZLAndroidWidget extends View implements ZLViewWidget, View.OnLongCl
 	}
 
 	public boolean onKeyUp(int keyCode, KeyEvent event) {
-		if (!BluetoothDeviceHelper.Instance().hasBluetoothMouse()) {
-			return true;
-		}
-		
 		if (myKeyUnderTracking != -1) {
 			if (myKeyUnderTracking == keyCode) {
 				final boolean longPress = System.currentTimeMillis() >

@@ -2,6 +2,7 @@ package org.geometerplus.android.fbreader;
 
 import java.util.Set;
 
+import org.geometerplus.fbreader.fbreader.ActionCode;
 import org.geometerplus.fbreader.fbreader.FBReaderApp;
 
 import android.bluetooth.BluetoothAdapter;
@@ -25,6 +26,27 @@ public class BluetoothDeviceHelper {
 
 	public boolean hasBluetoothMouse() {
 		return mhasBluetoothMouse;
+	}
+
+	private boolean isAutoBrowsing = false;
+
+	public void MouseLeftClick() {
+		if (isAutoBrowsing) {
+			FBReaderApp.Instance().runAction(ActionCode.AUTO_BROWSE_OFF,
+					new Object[] {});
+		} else {
+			FBReaderApp.Instance().runAction(ActionCode.AUTO_BROWSE_ON,
+					new Object[] {});
+		}
+		isAutoBrowsing = !isAutoBrowsing;
+	}
+
+	public void MouseRightClick() {
+
+	}
+
+	public void Wheel() {
+
 	}
 
 	private void setHasBluetoothMouse(boolean b) {
