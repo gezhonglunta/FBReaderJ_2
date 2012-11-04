@@ -57,7 +57,6 @@ public class BluetoothDeviceHelper {
 			adapter = BluetoothAdapter.getDefaultAdapter();
 		}
 
-		@Override
 		public void run() {
 			if (adapter.isEnabled()) {
 				Set<BluetoothDevice> pairedDevices = adapter.getBondedDevices();

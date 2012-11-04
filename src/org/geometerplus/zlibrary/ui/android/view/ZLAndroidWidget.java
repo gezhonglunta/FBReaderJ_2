@@ -196,6 +196,19 @@ public class ZLAndroidWidget extends View implements ZLViewWidget, View.OnLongCl
 		}
 	}
 
+	final SmoothShiftAnimationProvider smoothAnimator = new SmoothShiftAnimationProvider(myBitmapManager);
+	public void startSmoothAnimatedScrolling(ZLView.PageIndex pageIndex, ZLView.Direction direction, int speed) {
+		final ZLView view = ZLApplication.Instance().getCurrentView();
+		if (pageIndex == ZLView.PageIndex.current || !view.canScroll(pageIndex)) {
+			return;
+		}
+		smoothAnimator.setup(direction, getWidth(), getMainAreaHeight());
+		smoothAnimator.startAnimatedScrolling(pageIndex, null, null, speed);
+		if (smoothAnimator.getMode().Auto) {
+			postInvalidate();
+		}
+	}
+	
 	public void startAnimatedScrolling(int x, int y, int speed) {
 		final ZLView view = ZLApplication.Instance().getCurrentView();
 		final AnimationProvider animator = getAnimationProvider();

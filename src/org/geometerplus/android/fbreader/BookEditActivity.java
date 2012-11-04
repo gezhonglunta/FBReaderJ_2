@@ -85,7 +85,6 @@ public class BookEditActivity extends Activity implements OnClickListener {
 		}
 	}
 
-	@Override
 	public void onClick(View v) {
 		SaveBook();
 	}

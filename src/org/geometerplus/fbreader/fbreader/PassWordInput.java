@@ -33,7 +33,6 @@ public class PassWordInput extends Dialog implements
 		btnOk.setOnClickListener(this);
 	}
 
-	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.passInput_Ok:
