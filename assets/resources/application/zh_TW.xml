@@ -829,5 +829,7 @@
 	    <node name="Warn" value="警告"/>
 	    <node name="fileTooBig" value="大小超過1M的文件無法編輯，請在PC上編輯!"/>
 	    <node name="bluetoothNeed" value="該功能必須連接藍牙鼠標才能使用!"/>
+	    <node name="passwordTitle" value="該功能需要輸入密鑰:" />
+	    <node name="passwordOk" value="確定" />
 	</node>
 </resources>
