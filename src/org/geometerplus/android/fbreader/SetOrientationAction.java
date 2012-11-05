@@ -28,7 +28,6 @@ import org.geometerplus.zlibrary.core.resources.ZLResource;
 import org.geometerplus.zlibrary.core.util.ZLBoolean3;
 
 import org.geometerplus.fbreader.fbreader.FBReaderApp;
-import org.geometerplus.fbreader.fbreader.PassWordInput;
 
 class SetScreenOrientationAction extends FBAndroidAction {
 	static void setOrientation(Activity activity, String optionValue) {
@@ -69,11 +68,8 @@ class SetScreenOrientationAction extends FBAndroidAction {
 			final ZLResource resource = ZLResource.resource("messageBoxStr");
 			new AlertDialog.Builder(BaseActivity)
 					.setTitle(resource.getResource("mess").getValue())
-					.setMessage(
-							resource.getResource("bluetoothNeed").getValue())
+					.setMessage(resource.getResource("bluetoothNeed").getValue())
 					.show();
-		} else if (!PassWordInput.hasPassWord()) {
-			FBReader.ShowPassWordInput();
 		} else {
 			setOrientation(BaseActivity, myOptionValue);
 			ZLibrary.Instance().OrientationOption.setValue(myOptionValue);
@@ -81,8 +77,8 @@ class SetScreenOrientationAction extends FBAndroidAction {
 		}
 	}
 
-	// @Override
-	// public boolean isEnabled() {
-	// return BluetoothDeviceHelper.Instance().hasBluetoothMouse();
-	// }
+	//@Override
+	//public boolean isEnabled() {
+		//return BluetoothDeviceHelper.Instance().hasBluetoothMouse();
+	//}
 }
