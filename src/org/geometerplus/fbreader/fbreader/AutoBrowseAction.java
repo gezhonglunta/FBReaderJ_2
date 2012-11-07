@@ -35,20 +35,17 @@ public class AutoBrowseAction extends FBAction {
 
 	@Override
 	protected void run(Object... params) {
-		FBReaderApp.Instance().runAction(ActionCode.TURN_PAGE_FORWARD,
-				new Object[] { "", "", "" });
-		// if (thread == null) {
-		// thread = new AutoBrowseThread();
-		// AutoBrowseInterval intervalEnum =
-		// ScrollingPreferences.Instance().AutoBrowseIntervalOption
-		// .getValue();
-		// int interval = Integer.parseInt(intervalEnum.name()
-		// .replace("S", "")) * 1000;
-		// FBReaderApp.Instance().addTimerTask(thread, interval);
-		// } else {
-		// FBReaderApp.Instance().removeTimerTask(thread);
-		// thread = null;
-		// }
+		if (thread == null) {
+			thread = new AutoBrowseThread();
+			AutoBrowseInterval intervalEnum = ScrollingPreferences.Instance().AutoBrowseIntervalOption
+					.getValue();
+			int interval = Integer.parseInt(intervalEnum.name()
+					.replace("S", "")) * 1000;
+			FBReaderApp.Instance().addTimerTask(thread, interval);
+		} else {
+			FBReaderApp.Instance().removeTimerTask(thread);
+			thread = null;
+		}
 	}
 
 	static class AutoBrowseThread implements Runnable {
