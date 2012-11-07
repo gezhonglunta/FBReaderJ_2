@@ -27,7 +27,7 @@ import android.util.FloatMath;
 import org.geometerplus.zlibrary.core.library.ZLibrary;
 import org.geometerplus.zlibrary.core.view.ZLView;
 
-abstract class AnimationProvider {
+public abstract class AnimationProvider {
 	static enum Mode {
 		NoScrolling(false),
 		ManualScrolling(false),
@@ -55,13 +55,18 @@ abstract class AnimationProvider {
 
 	protected AnimationProvider(BitmapManager bitmapManager) {
 		myBitmapManager = bitmapManager;
+		Instance = this;
 	}
 
+	protected int getDefaultVelocity() {
+		return 15;
+	}
+	
 	Mode getMode() {
 		return myMode;
 	}
 
-	final void terminate() {
+	public final void terminate() {
 		myMode = Mode.NoScrolling;
 		mySpeed = 0;
 		myDrawInfos.clear();
@@ -100,7 +105,7 @@ abstract class AnimationProvider {
 
 		myMode = forward ? Mode.AnimatedScrollingForward : Mode.AnimatedScrollingBackward;
 
-		float velocity = 15;
+		float velocity = getDefaultVelocity();
 		if (myDrawInfos.size() > 1) {
 			int duration = 0;
 			for (DrawInfo info : myDrawInfos) {
@@ -119,7 +124,7 @@ abstract class AnimationProvider {
 			}
 			velocity /= myDrawInfos.size() - 1;
 			velocity *= duration;
-			velocity = Math.min(100, Math.max(15, velocity));
+			velocity = Math.min(100, Math.max(getDefaultVelocity(), velocity));
 		}
 		myDrawInfos.clear();
 
@@ -152,11 +157,11 @@ abstract class AnimationProvider {
 		switch (myDirection) {
 			case up:
 			case rightToLeft:
-				mySpeed = pageIndex == ZLView.PageIndex.next ? -15 : 15;
+				mySpeed = pageIndex == ZLView.PageIndex.next ? -getDefaultVelocity() : getDefaultVelocity();
 				break;
 			case leftToRight:
 			case down:
-				mySpeed = pageIndex == ZLView.PageIndex.next ? 15 : -15;
+				mySpeed = pageIndex == ZLView.PageIndex.next ? getDefaultVelocity() : -getDefaultVelocity();
 				break;
 		}
 		setupAnimatedScrollingStart(x, y);
@@ -227,4 +232,6 @@ abstract class AnimationProvider {
 	protected Bitmap getBitmapTo() {
 		return myBitmapManager.getBitmap(getPageToScrollTo());
 	}
+	
+	public static AnimationProvider Instance;
 }

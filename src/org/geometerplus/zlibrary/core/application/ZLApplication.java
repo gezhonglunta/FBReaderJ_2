@@ -254,8 +254,12 @@ public abstract class ZLApplication {
 	}
 
 	private void addTimerTaskInternal(Runnable runnable, long periodMilliseconds) {
+		addTimerTaskInternal(runnable, periodMilliseconds / 2, periodMilliseconds);
+	}
+	
+	private void addTimerTaskInternal(Runnable runnable,long delay, long periodMilliseconds) {
 		final TimerTask task = new MyTimerTask(runnable);
-		myTimer.schedule(task, periodMilliseconds / 2, periodMilliseconds);
+		myTimer.schedule(task, delay, periodMilliseconds);
 		myTimerTasks.put(runnable, task);
 	}
 
@@ -289,7 +293,17 @@ public abstract class ZLApplication {
 				addTimerTaskInternal(runnable, periodMilliseconds);
 			}
 		}
-	}	
+	}
+	
+	public final void addTimerTask(Runnable runnable,long delay, long periodMilliseconds) {
+		synchronized (myTimerLock) {
+			removeTimerTask(runnable);
+			myTimerTaskPeriods.put(runnable, periodMilliseconds);
+			if (myTimer != null) {
+				addTimerTaskInternal(runnable, delay, periodMilliseconds);
+			}
+		}
+	}
 
 	public final void removeTimerTask(Runnable runnable) {
 		synchronized (myTimerLock) {

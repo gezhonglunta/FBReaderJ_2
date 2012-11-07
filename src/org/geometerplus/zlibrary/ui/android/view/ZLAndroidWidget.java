@@ -19,11 +19,14 @@
 
 package org.geometerplus.zlibrary.ui.android.view;
 
+import java.util.TimerTask;
+
 import android.content.Context;
 import android.graphics.*;
 import android.view.*;
 import android.util.AttributeSet;
 import org.geometerplus.android.fbreader.BluetoothDeviceHelper;
+import org.geometerplus.fbreader.fbreader.AutoBrowseAction;
 import org.geometerplus.zlibrary.core.view.ZLView;
 import org.geometerplus.zlibrary.core.view.ZLViewWidget;
 import org.geometerplus.zlibrary.core.application.ZLApplication;
@@ -114,6 +117,22 @@ public class ZLAndroidWidget extends View implements ZLViewWidget, View.OnLongCl
 		return myAnimationProvider;
 	}
 
+	/**
+	 * 平滑移动延时动画
+	 */
+	private final TimerTask smoothShifTask=new TimerTask() {
+		@Override
+		public void run() {
+			try {
+				Thread.sleep(AutoBrowseAction.Instance.Speed);
+				postInvalidate();
+				smoothShifTask.cancel();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	};
+	
 	private void onDrawInScrolling(Canvas canvas) {
 		final ZLView view = ZLApplication.Instance().getCurrentView();
 
@@ -126,7 +145,17 @@ public class ZLAndroidWidget extends View implements ZLViewWidget, View.OnLongCl
 		if (animator.inProgress()) {
 			animator.draw(canvas);
 			if (animator.getMode().Auto) {
-				postInvalidate();
+				if(AutoBrowseAction.Instance.isAutoBrowsing()){
+					if (AutoBrowseAction.Instance.Speed > 0) {
+						smoothShifTask.run();
+					}
+					else {
+						postInvalidate();
+					}
+				}
+				else {
+					postInvalidate();
+				}
 			}
 			drawFooter(canvas);
 		} else {
@@ -206,7 +235,7 @@ public class ZLAndroidWidget extends View implements ZLViewWidget, View.OnLongCl
 		animator.startAnimatedScrolling(x, y, speed);
 		postInvalidate();
 	}
-
+	
 	void drawOnBitmap(Bitmap bitmap, ZLView.PageIndex index) {
 		final ZLView view = ZLApplication.Instance().getCurrentView();
 		if (view == null) {

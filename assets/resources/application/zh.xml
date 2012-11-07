@@ -588,6 +588,7 @@
 			<node name="autoBrowseUnit" value="自动翻阅方式">
 			    <node name="Row" value="按行翻"/>
 				<node name="Page" value="按页翻"/>
+				<node name="Smooth" value="平滑滚动"/>
 			</node>
 			<node name="autoBrowseInterval" value="自动翻阅间隔">
 			    <node name="S1" value="1秒"/>

@@ -587,6 +587,11 @@
 				<node name="summaryOn" value="橫向翻頁"/>
 				<node name="summaryOff" value="縱向翻頁"/>
 			</node>
+			<node name="autoBrowseUnit" value="自动翻阅方式">
+			    <node name="Row" value="按行翻"/>
+				<node name="Page" value="按页翻"/>
+				<node name="Smooth" value="平滑滾動"/>
+			</node>
 		</node>
 		<node name="tapZones" value="觸控範圍">
 			<node name="summary" value="觸碰範圍動作"/>

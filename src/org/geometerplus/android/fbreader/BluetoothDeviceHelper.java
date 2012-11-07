@@ -54,22 +54,31 @@ public class BluetoothDeviceHelper {
 		BluetoothAdapter adapter;
 
 		public BluetoothMouseCheckTask() {
-			adapter = BluetoothAdapter.getDefaultAdapter();
+			try {
+				adapter = BluetoothAdapter.getDefaultAdapter();
+			} catch (Exception e) {
+			}
 		}
 
 		public void run() {
-			if (adapter.isEnabled()) {
-				Set<BluetoothDevice> pairedDevices = adapter.getBondedDevices();
-				if (pairedDevices != null) {
-					for (BluetoothDevice bluetoothDevice : pairedDevices) {
-						if ("Bluetooth Mouse".equals(bluetoothDevice.getName())
-								&& bluetoothDevice.getBondState() == BluetoothDevice.BOND_BONDED) {
-							BluetoothDeviceHelper.Instance()
-									.setHasBluetoothMouse(true);
-							return;
+			try {
+				if (adapter != null && adapter.isEnabled()) {
+					Set<BluetoothDevice> pairedDevices = adapter
+							.getBondedDevices();
+					if (pairedDevices != null) {
+						for (BluetoothDevice bluetoothDevice : pairedDevices) {
+							if ("Bluetooth Mouse".equals(bluetoothDevice
+									.getName())
+									&& bluetoothDevice.getBondState() == BluetoothDevice.BOND_BONDED) {
+								BluetoothDeviceHelper.Instance()
+										.setHasBluetoothMouse(true);
+								return;
+							}
 						}
 					}
 				}
+			} catch (Exception e) {
+
 			}
 			BluetoothDeviceHelper.Instance().setHasBluetoothMouse(false);
 		}

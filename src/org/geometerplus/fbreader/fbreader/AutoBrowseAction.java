@@ -4,6 +4,7 @@ import org.geometerplus.fbreader.fbreader.FBAction;
 import org.geometerplus.fbreader.fbreader.FBReaderApp;
 import org.geometerplus.fbreader.fbreader.ScrollingPreferences.AutoBrowseInterval;
 import org.geometerplus.fbreader.fbreader.ScrollingPreferences.AutoBrowseUnit;
+import org.geometerplus.zlibrary.ui.android.view.AnimationProvider;
 
 public class AutoBrowseAction extends FBAction {
 	private boolean actionOn = false;
@@ -11,7 +12,10 @@ public class AutoBrowseAction extends FBAction {
 	AutoBrowseAction(FBReaderApp fbreader, boolean actionOn) {
 		super(fbreader);
 		this.actionOn = actionOn;
+		Instance = this;
 	}
+
+	public static AutoBrowseAction Instance;
 
 	@Override
 	public boolean isVisible() {
@@ -33,6 +37,13 @@ public class AutoBrowseAction extends FBAction {
 		return !(thread == null);
 	}
 
+	public boolean isSmoothing() {
+		return ScrollingPreferences.Instance().AutoBrowseUnitOption.getValue() == AutoBrowseUnit.Smooth
+				&& thread != null;
+	}
+
+	public int Speed;
+
 	@Override
 	protected void run(Object... params) {
 		if (thread == null) {
@@ -41,9 +52,28 @@ public class AutoBrowseAction extends FBAction {
 					.getValue();
 			int interval = Integer.parseInt(intervalEnum.name()
 					.replace("S", "")) * 1000;
-			FBReaderApp.Instance().addTimerTask(thread, interval);
+			if (interval == 1000) {
+				Speed = -4;
+			} else if (interval == 2000) {
+				Speed = -3;
+			} else if (interval == 3000) {
+				Speed = -2;
+			} else if (interval == 4000) {
+				Speed = -1;
+			} else {
+				Speed = interval / 120;
+			}
+			FBReaderApp.Instance().addTimerTask(
+					thread,
+					interval <= 10000 ? interval / 2 : 5000,
+					ScrollingPreferences.Instance().AutoBrowseUnitOption
+							.getValue() == AutoBrowseUnit.Smooth ? 3000
+							: interval);
 		} else {
 			FBReaderApp.Instance().removeTimerTask(thread);
+			if (AnimationProvider.Instance != null) {
+				AnimationProvider.Instance.terminate();
+			}
 			thread = null;
 		}
 	}
@@ -54,8 +84,8 @@ public class AutoBrowseAction extends FBAction {
 					.Instance()
 					.StartAutoBrowse(
 							ScrollingPreferences.Instance().AutoBrowseUnitOption
-									.getValue() == AutoBrowseUnit.Page ? FBView.ScrollingMode.SCROLL_PERCENTAGE
-									: FBView.ScrollingMode.SCROLL_LINES);
+									.getValue() == AutoBrowseUnit.Row ? FBView.ScrollingMode.SCROLL_LINES
+									: FBView.ScrollingMode.SCROLL_PERCENTAGE);
 			if (!result) {
 				FBReaderApp.Instance().StopAutoBrowse();
 			}

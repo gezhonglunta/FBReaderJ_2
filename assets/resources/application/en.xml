@@ -592,6 +592,10 @@
 				<node name="summaryOn" value="Scroll pages horizontally"/>
 				<node name="summaryOff" value="Scroll pages vertically"/>
 			</node>
+			<node name="autoBrowseUnit" value="Automatic turning mode">
+			    <node name="Row" value="Row"/>
+				<node name="Page" value="Page"/>
+			<node name="Smooth" value="Smooth shift"/>
 		</node>
 		<node name="tapZones" value="Tap zones">
 			<node name="summary" value="Actions on finger tap"/>

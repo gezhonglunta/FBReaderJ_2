@@ -19,6 +19,7 @@
 
 package org.geometerplus.zlibrary.ui.android.view;
 
+import org.geometerplus.fbreader.fbreader.AutoBrowseAction;
 import org.geometerplus.zlibrary.core.view.ZLView;
 
 abstract class SimpleAnimationProvider extends AnimationProvider {
@@ -35,14 +36,18 @@ abstract class SimpleAnimationProvider extends AnimationProvider {
 		}
 
 		switch (myDirection) {
-			case rightToLeft:
-				return myStartX < x ? ZLView.PageIndex.previous : ZLView.PageIndex.next;
-			case leftToRight:
-				return myStartX < x ? ZLView.PageIndex.next : ZLView.PageIndex.previous;
-			case up:
-				return myStartY < y ? ZLView.PageIndex.previous : ZLView.PageIndex.next;
-			case down:
-				return myStartY < y ? ZLView.PageIndex.next : ZLView.PageIndex.previous;
+		case rightToLeft:
+			return myStartX < x ? ZLView.PageIndex.previous
+					: ZLView.PageIndex.next;
+		case leftToRight:
+			return myStartX < x ? ZLView.PageIndex.next
+					: ZLView.PageIndex.previous;
+		case up:
+			return myStartY < y ? ZLView.PageIndex.previous
+					: ZLView.PageIndex.next;
+		case down:
+			return myStartY < y ? ZLView.PageIndex.next
+					: ZLView.PageIndex.previous;
 		}
 		return ZLView.PageIndex.current;
 	}
@@ -63,8 +68,25 @@ abstract class SimpleAnimationProvider extends AnimationProvider {
 	}
 
 	@Override
+	protected int getDefaultVelocity() {
+		if (AutoBrowseAction.Instance.isAutoBrowsing()) {
+			if (AutoBrowseAction.Instance.Speed > 0) {
+				return 1;
+			} else {
+				return -AutoBrowseAction.Instance.Speed;
+			}
+		} else {
+			return super.getDefaultVelocity();
+		}
+	}
+
+	@Override
 	protected void startAnimatedScrollingInternal(int speed) {
-		mySpeedFactor = (float)Math.pow(1.5, 0.25 * speed);
+		if (AutoBrowseAction.Instance.isAutoBrowsing()) {
+			mySpeedFactor = 1f;
+		} else {
+			mySpeedFactor = (float) Math.pow(1.5, 0.25 * speed);
+		}
 		doStep();
 	}
 
@@ -75,18 +97,18 @@ abstract class SimpleAnimationProvider extends AnimationProvider {
 		}
 
 		switch (myDirection) {
-			case leftToRight:
-				myEndX -= (int)mySpeed;
-				break;
-			case rightToLeft:
-				myEndX += (int)mySpeed;
-				break;
-			case up:
-				myEndY += (int)mySpeed;
-				break;
-			case down:
-				myEndY -= (int)mySpeed;
-				break;
+		case leftToRight:
+			myEndX -= (int) mySpeed;
+			break;
+		case rightToLeft:
+			myEndX += (int) mySpeed;
+			break;
+		case up:
+			myEndY += (int) mySpeed;
+			break;
+		case down:
+			myEndY -= (int) mySpeed;
+			break;
 		}
 		final int bound;
 		if (getMode() == Mode.AnimatedScrollingForward) {
