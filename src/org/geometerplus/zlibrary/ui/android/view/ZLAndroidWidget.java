@@ -21,10 +21,13 @@ package org.geometerplus.zlibrary.ui.android.view;
 
 import java.util.TimerTask;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.*;
 import android.view.*;
 import android.util.AttributeSet;
+import android.util.Log;
+
 import org.geometerplus.android.fbreader.BluetoothDeviceHelper;
 import org.geometerplus.fbreader.fbreader.AutoBrowseAction;
 import org.geometerplus.zlibrary.core.view.ZLView;
@@ -285,16 +288,34 @@ public class ZLAndroidWidget extends View implements ZLViewWidget, View.OnLongCl
 	}
 
 	private boolean isLeftDown=false;
+	private final int BUTTON_PRIMARY = 0x01;
+	private final int BUTTON_SECONDARY = 0x02;
+	private final int BUTTON_TERTIARY = 0x04;
+	@SuppressLint("NewApi")
 	@Override
 	public boolean onTrackballEvent(MotionEvent event) {
-		if (event.getAction() == MotionEvent.ACTION_DOWN) {
-			isLeftDown=true;
-		} else if (event.getAction() == MotionEvent.ACTION_UP) {
-			if (isLeftDown) {
-				BluetoothDeviceHelper.Instance().MouseLeftClick();
+		int state = -1;
+		try {
+			state = event.getButtonState();
+		} catch (Exception e) {
+			Log.e("", e.getMessage());
+			state = BUTTON_PRIMARY;
+		}
+		if (state == BUTTON_PRIMARY) {
+			if (event.getAction() == MotionEvent.ACTION_DOWN) {
+				isLeftDown = true;
+			} else if (event.getAction() == MotionEvent.ACTION_UP) {
+				if (isLeftDown) {
+					BluetoothDeviceHelper.Instance().MouseLeftClick();
+				}
+				isLeftDown = false;
 			}
-			isLeftDown=false;
-		} //else if (event.getAction() == MotionEvent.ACTION_MOVE) {
+		} else if (state == BUTTON_SECONDARY) {
+
+		} else if (state == BUTTON_TERTIARY) {
+
+		}
+		//else if (event.getAction() == MotionEvent.ACTION_MOVE) {
 //
 //		}
 //		if (event.getAction() == MotionEvent.ACTION_DOWN) {

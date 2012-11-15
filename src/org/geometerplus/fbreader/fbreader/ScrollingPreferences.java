@@ -41,7 +41,7 @@ public class ScrollingPreferences {
 	public final ZLEnumOption<AutoBrowseUnit> AutoBrowseUnitOption =
 			new ZLEnumOption<AutoBrowseUnit>("Scrolling", "AutoBrowseUnit", AutoBrowseUnit.Smooth);
 	public final ZLEnumOption<AutoBrowseInterval> AutoBrowseIntervalOption =
-			new ZLEnumOption<AutoBrowseInterval>("Scrolling", "AutoBrowseUnit", AutoBrowseInterval.S1);
+			new ZLEnumOption<AutoBrowseInterval>("Scrolling", "AutoBrowseUnit", AutoBrowseInterval.S4);
 	
 	public final ZLEnumOption<FingerScrolling> FingerScrollingOption =
 		new ZLEnumOption<FingerScrolling>("Scrolling", "Finger", FingerScrolling.byTapAndFlick);

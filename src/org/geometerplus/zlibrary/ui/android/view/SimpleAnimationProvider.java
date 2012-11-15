@@ -69,7 +69,7 @@ abstract class SimpleAnimationProvider extends AnimationProvider {
 
 	@Override
 	protected int getDefaultVelocity() {
-		if (AutoBrowseAction.Instance.isAutoBrowsing()) {
+		if (AutoBrowseAction.Instance.isSmoothing()) {
 			if (AutoBrowseAction.Instance.Speed > 0) {
 				return 1;
 			} else {
@@ -82,7 +82,7 @@ abstract class SimpleAnimationProvider extends AnimationProvider {
 
 	@Override
 	protected void startAnimatedScrollingInternal(int speed) {
-		if (AutoBrowseAction.Instance.isAutoBrowsing()) {
+		if (AutoBrowseAction.Instance.isSmoothing()) {
 			mySpeedFactor = 1f;
 		} else {
 			mySpeedFactor = (float) Math.pow(1.5, 0.25 * speed);
