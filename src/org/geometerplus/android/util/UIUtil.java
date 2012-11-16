@@ -27,8 +27,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.Toast;
 
+import org.geometerplus.zlibrary.core.resources.ZLMissingResource;
 import org.geometerplus.zlibrary.core.resources.ZLResource;
 
 public abstract class UIUtil {
@@ -109,8 +111,13 @@ public abstract class UIUtil {
 	}
 
 	public static void runWithMessage(final Activity activity, String key, final Runnable action, final Runnable postAction, final boolean minPriority) {
-		final String message =
-			ZLResource.resource("dialog").getResource("waitMessage").getResource(key).getValue();
+		String message2 = ZLResource.resource("dialog")
+				.getResource("waitMessage").getResource(key).getValue();
+		if (ZLMissingResource.Value.startsWith(message2)
+				&& "loadingBook".startsWith(key)) {
+			message2 = "图书加载中，请等待…";
+		}
+		final String message = message2;
 		activity.runOnUiThread(new Runnable() {
 			public void run() {
 				final ProgressDialog progress = ProgressDialog.show(activity, null, message, true, false);

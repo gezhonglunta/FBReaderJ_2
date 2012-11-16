@@ -313,6 +313,7 @@ public class ZLAndroidWidget extends View implements ZLViewWidget, View.OnLongCl
 		} else if (state == BUTTON_SECONDARY) {
 
 		} else if (state == BUTTON_TERTIARY) {
+			
 
 		}
 		//else if (event.getAction() == MotionEvent.ACTION_MOVE) {

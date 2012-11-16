@@ -19,8 +19,8 @@
 
 package org.geometerplus.zlibrary.core.resources;
 
-final class ZLMissingResource extends ZLResource {
-	static final String Value = "????????";
+public final class ZLMissingResource extends ZLResource {
+	public static final String Value = "????????";
 	static final ZLMissingResource Instance = new ZLMissingResource();
 
 	private ZLMissingResource() {
