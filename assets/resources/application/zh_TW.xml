@@ -833,7 +833,7 @@
 	    <node name="mess" value="提示"/>
 	    <node name="Warn" value="警告"/>
 	    <node name="fileTooBig" value="大小超過1M的文件無法編輯，請在PC上編輯!"/>
-	    <node name="bluetoothNeed" value="該功能必須連接藍牙鼠標才能使用!"/>
+	    <node name="bluetoothNeed" value="該功能必須連接理想智控藍牙設備才能使用，請購買相關配套藍牙設備，謝謝!!"/>
 	    <node name="passwordTitle" value="該功能需要輸入密鑰:" />
 	    <node name="passwordOk" value="確定" />
 	</node>
