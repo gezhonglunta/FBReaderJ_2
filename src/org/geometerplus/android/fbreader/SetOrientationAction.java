@@ -19,6 +19,7 @@
 
 package org.geometerplus.android.fbreader;
 
+import android.R.bool;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.pm.ActivityInfo;
@@ -65,15 +66,20 @@ class SetScreenOrientationAction extends FBAndroidAction {
 
 	@Override
 	protected void run(Object... params) {
-		if (!BluetoothDeviceHelper.Instance().hasBluetoothMouse()) {
-			final ZLResource resource = ZLResource.resource("messageBoxStr");
-			new AlertDialog.Builder(BaseActivity)
-					.setTitle(resource.getResource("mess").getValue())
-					.setMessage(
-							resource.getResource("bluetoothNeed").getValue())
-					.show();
-		} else if (!PassWordInput.hasPassWord()) {
-			FBReader.ShowPassWordInput();
+		boolean flag1 = BluetoothDeviceHelper.Instance().hasBluetoothMouse();
+		boolean flag2 = PassWordInput.hasPassWord();
+		if (!flag1 && !flag2) {
+			if (!BluetoothDeviceHelper.Instance().hasBluetoothMouse()) {
+				final ZLResource resource = ZLResource
+						.resource("messageBoxStr");
+				new AlertDialog.Builder(BaseActivity)
+						.setTitle(resource.getResource("mess").getValue())
+						.setMessage(
+								resource.getResource("bluetoothNeed")
+										.getValue()).show();
+			} else if (!PassWordInput.hasPassWord()) {
+				FBReader.ShowPassWordInput();
+			}
 		} else {
 			setOrientation(BaseActivity, myOptionValue);
 			ZLibrary.Instance().OrientationOption.setValue(myOptionValue);
