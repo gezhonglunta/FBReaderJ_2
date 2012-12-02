@@ -19,7 +19,6 @@
 
 package org.geometerplus.android.fbreader;
 
-import android.R.bool;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.pm.ActivityInfo;
@@ -86,9 +85,4 @@ class SetScreenOrientationAction extends FBAndroidAction {
 			Reader.onRepaintFinished();
 		}
 	}
-
-	// @Override
-	// public boolean isEnabled() {
-	// return BluetoothDeviceHelper.Instance().hasBluetoothMouse();
-	// }
 }

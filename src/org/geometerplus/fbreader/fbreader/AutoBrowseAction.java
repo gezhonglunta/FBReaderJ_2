@@ -67,7 +67,7 @@ public class AutoBrowseAction extends FBAction {
 					thread,
 					interval <= 10000 ? interval / 2 : 5000,
 					ScrollingPreferences.Instance().AutoBrowseUnitOption
-							.getValue() == AutoBrowseUnit.Smooth ? 3000
+							.getValue() == AutoBrowseUnit.Smooth ? 500
 							: interval);
 		} else {
 			FBReaderApp.Instance().removeTimerTask(thread);

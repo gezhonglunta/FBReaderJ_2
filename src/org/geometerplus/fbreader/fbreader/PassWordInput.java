@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class PassWordInput extends Dialog implements
 		android.view.View.OnClickListener {
@@ -25,11 +26,15 @@ public class PassWordInput extends Dialog implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.pass_word_input);
-		final ZLResource resource = ZLResource.resource("messageBoxStr");
-		setTitle(resource.getResource("passwordTitle").getValue());
+		final ZLResource resource = ZLResource.resource("menu");
+		setTitle(resource.getResource("messageBoxStr").getResource("passwordTitle").getValue());
 		editText = (EditText) findViewById(R.id.passInput_Input);
+		TextView tv = (TextView) findViewById(R.id.passInput_Title);
+		tv.setText(resource.getResource("messageBoxStr").getResource("bluetoothNeed").getValue());
+		tv=(TextView) findViewById(R.id.passInput_Key);
+		tv.setText(resource.getResource("messageBoxStr").getResource("passwordKey").getValue());
 		btnOk = (Button) findViewById(R.id.passInput_Ok);
-		btnOk.setText(resource.getResource("passwordOk").getValue());
+		btnOk.setText(resource.getResource("messageBoxStr").getResource("passwordOk").getValue());
 		btnOk.setOnClickListener(this);
 	}
 

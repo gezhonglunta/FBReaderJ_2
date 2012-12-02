@@ -220,6 +220,18 @@
 		<node name="sharedFrom" value="Shared from &lt;a href=&quot;http://www.fbreader.org/&quot;&gt;FBReader&lt;/a&gt;" toBeTranslated="true"/>
 	</node>
 	<node name="menu">
+	    <node name="autoNextPage" value="開啟自動繙閱"/>
+	    <node name="bookEdit" value="編輯"/>
+	    <node name="autoNextPageOff" value="關閉自動繙閱"/>
+	    <node name="messageBoxStr">
+		    <node name="mess" value="提示"/>
+		    <node name="Warn" value="警告"/>
+		    <node name="fileTooBig" value="大小超過1M的文件無法編輯，請在PC上編輯!"/>
+		    <node name="bluetoothNeed" value="該功能必鬚連接理想智控藍牙設備或者密鑰才能使用，請購買相關配套藍牙設備或者密鑰，謝謝!!"/>
+		    <node name="passwordTitle" value="該功能需要藍牙設備或者密鑰" />
+		    <node name="passwordOk" value="確定" />
+		    <node name="passwordKey" value="密鑰:" />
+		</node>
 		<node name="preferences" value="設定"/>
 		<node name="bookInfo" value="書藉資訊"/>
 		<node name="library" value="書庫"/>
@@ -241,13 +253,13 @@
 		<node name="shareBook" value="Share book" toBeTranslated="true"/>
 		<node name="search" value="搜尋"/>
 		<node name="rotate" value="旋轉屏幕"/>
-		<node name="screenOrientation" value="Screen orientation" toBeTranslated="true"/>
-		<node name="screenOrientationSystem" value="System" toBeTranslated="true"/>
-		<node name="screenOrientationSensor" value="Device orientation sensitive" toBeTranslated="true"/>
-		<node name="screenOrientationPortrait" value="Portrait" toBeTranslated="true"/>
-		<node name="screenOrientationLandscape" value="Landscape" toBeTranslated="true"/>
-		<node name="screenOrientationReversePortrait" value="Reverse portrait" toBeTranslated="true"/>
-		<node name="screenOrientationReverseLandscape" value="Reverse landscape" toBeTranslated="true"/>
+		<node name="screenOrientation" value="屏幕方向" toBeTranslated="true"/>
+		<node name="screenOrientationSystem" value="系統" toBeTranslated="true"/>
+		<node name="screenOrientationSensor" value="感知設備方向" toBeTranslated="true"/>
+		<node name="screenOrientationPortrait" value="豎直" toBeTranslated="true"/>
+		<node name="screenOrientationLandscape" value="水平" toBeTranslated="true"/>
+		<node name="screenOrientationReversePortrait" value="豎直反轉" toBeTranslated="true"/>
+		<node name="screenOrientationReverseLandscape" value="水平反轉" toBeTranslated="true"/>
 		<node name="increaseFont" value="放大"/>
 		<node name="decreaseFont" value="縮小"/>
 		<node name="toggleFullscreen" value="全屏"/>
@@ -828,13 +840,5 @@
 		<node name="opfFileNotFound" value="OPF is not found in %s" toBeTranslated="true"/>
 		<node name="unsupportedFileFormat" value="File format is not supported for '%s'" toBeTranslated="true"/>
 		<node name="errorParsingRtf" value="Rtf parsing error in: %s" toBeTranslated="true"/>
-	</node>
-	<node name="messageBoxStr">
-	    <node name="mess" value="提示"/>
-	    <node name="Warn" value="警告"/>
-	    <node name="fileTooBig" value="大小超過1M的文件無法編輯，請在PC上編輯!"/>
-	    <node name="bluetoothNeed" value="該功能必須連接理想智控藍牙設備才能使用，請購買相關配套藍牙設備，謝謝!!"/>
-	    <node name="passwordTitle" value="該功能需要輸入密鑰:" />
-	    <node name="passwordOk" value="確定" />
 	</node>
 </resources>

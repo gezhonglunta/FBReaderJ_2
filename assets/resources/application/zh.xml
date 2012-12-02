@@ -223,6 +223,15 @@
 	    <node name="autoNextPage" value="开启自动翻阅"/>
 	    <node name="bookEdit" value="编辑"/>
 	    <node name="autoNextPageOff" value="关闭自动翻阅"/>
+	    <node name="messageBoxStr">
+		    <node name="mess" value="提示"/>
+		    <node name="Warn" value="警告"/>
+		    <node name="fileTooBig" value="大小超过1M的文件无法编辑，请在PC上编辑!"/>
+		    <node name="bluetoothNeed" value="该功能必须连接理想智控蓝牙设备或者密钥才能使用，请购买相关配套蓝牙设备或者密钥，谢谢!!"/>
+		    <node name="passwordTitle" value="该功能需要蓝牙设备或者密钥" />
+		    <node name="passwordOk" value="确定" />
+		    <node name="passwordKey" value="密钥:" />
+		</node>
 		<node name="preferences" value="阅读相关设置"/>
 		<node name="bookInfo" value="书籍信息"/>
 		<node name="library" value="本地书柜"/>
@@ -848,13 +857,5 @@
 		<node name="opfFileNotFound" value="在 %s 文件夹未找到 OPF  "/>
 		<node name="unsupportedFileFormat" value="文件格式 '%s' 不支持"/>
 		<node name="errorParsingRtf" value="Rtf解析错误: %s"/>
-	</node>
-	<node name="messageBoxStr">
-	    <node name="mess" value="提示"/>
-	    <node name="Warn" value="警告"/>
-	    <node name="fileTooBig" value="大小超过1M的文件无法编辑，请在PC上编辑!"/>
-	    <node name="bluetoothNeed" value="该功能必须连接理想智控蓝牙设备才能使用，请购买相关配套蓝牙设备，谢谢!!"/>
-	    <node name="passwordTitle" value="该功能需要输入密钥:" />
-	    <node name="passwordOk" value="确定" />
 	</node>
 </resources>

@@ -230,6 +230,18 @@
 		<node name="sharedFrom" value="Shared from &lt;a href=&quot;http://www.fbreader.org/&quot;&gt;FBReader&lt;/a&gt;"/>
 	</node>
 	<node name="menu">
+	    <node name="autoNextPage" value="Start auto browse"/>
+	    <node name="bookEdit" value="Edit"/>
+	    <node name="autoNextPageOff" value="Stop auto browse"/>
+	    <node name="messageBoxStr">
+		    <node name="mess" value="Tip"/>
+		    <node name="warn" value="Warn"/>
+		    <node name="fileTooBig" value="1M size exceeds the file can not be edited,please edited on the PC!"/>
+		    <node name="bluetoothNeed" value="The function must be connected with the LXZK Bluetooth device or input key can use, please purchase the related supporting Bluetooth devices or key, thank you!!"/>
+		    <node name="passwordTitle" value="This function is need Bluetooth device or key:" />
+		    <node name="passwordOk" value="OK" />
+		    <node name="passwordKey" value="Key:" />
+	    </node>
 		<node name="preferences" value="Settings"/>
 		<node name="bookInfo" value="Book info"/>
 		<node name="library" value="Library"/>
@@ -832,13 +844,5 @@
 		<node name="opfFileNotFound" value="OPF is not found in %s"/>
 		<node name="unsupportedFileFormat" value="File format is not supported for '%s'"/>
 		<node name="errorParsingRtf" value="Rtf parsing error in: %s"/>
-	</node>
-	<node name="messageBoxStr">
-	    <node name="mess" value="Tip"/>
-	    <node name="warn" value="Warn"/>
-	    <node name="fileTooBig" value="1M size exceeds the file can not be edited,please edited on the PC!"/>
-	    <node name="bluetoothNeed" value="The function must be connected with the LXZK Bluetooth device can use, please purchase the related supporting Bluetooth devices, thank you!!"/>
-	    <node name="passwordTitle" value="This function is need key:" />
-	    <node name="passwordOk" value="OK" />
 	</node>
 </resources>
