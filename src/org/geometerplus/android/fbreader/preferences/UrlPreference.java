@@ -26,7 +26,8 @@ import android.preference.Preference;
 
 import org.geometerplus.zlibrary.core.resources.ZLResource;
 
-class UrlPreference extends Preference implements Preference.OnPreferenceClickListener {
+class UrlPreference extends Preference implements
+		Preference.OnPreferenceClickListener {
 	private final String myUrl;
 
 	UrlPreference(Context context, ZLResource resource, String resourceKey) {
@@ -40,10 +41,34 @@ class UrlPreference extends Preference implements Preference.OnPreferenceClickLi
 
 	public boolean onPreferenceClick(Preference preference) {
 		try {
-			getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(myUrl)));
+			getContext().startActivity(
+					new Intent(Intent.ACTION_VIEW, Uri.parse(myUrl)));
 		} catch (Throwable t) {
 			t.printStackTrace();
 		}
 		return true;
 	}
+}
+
+class StringPreference extends Preference {
+	private final String myUrl;
+
+	public StringPreference(Context context, ZLResource resource,
+			String resourceKey) {
+		super(context);
+		resource = resource.getResource(resourceKey);
+		myUrl = resource.getResource("url").getValue();
+		setTitle(resource.getValue());
+		setSummary(myUrl);
+	}
+
+	public StringPreference(Context context, ZLResource resource,
+			String resourceKey, String value) {
+		super(context);
+		resource = resource.getResource(resourceKey);
+		myUrl = resource.getResource("url").getValue();
+		setTitle(resource.getValue());
+		setSummary(value);
+	}
+
 }

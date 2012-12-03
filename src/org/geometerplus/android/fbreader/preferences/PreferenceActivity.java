@@ -19,7 +19,10 @@
 
 package org.geometerplus.android.fbreader.preferences;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.view.KeyEvent;
 
 import org.geometerplus.zlibrary.core.application.ZLKeyBindings;
@@ -460,6 +463,16 @@ public class PreferenceActivity extends ZLPreferenceActivity {
 		));
 		aboutScreen.addPreference(new UrlPreference(this, aboutScreen.Resource, "site"));
 		aboutScreen.addPreference(new UrlPreference(this, aboutScreen.Resource, "email"));
-		aboutScreen.addPreference(new UrlPreference(this, aboutScreen.Resource, "twitter"));
+		aboutScreen.addPreference(new StringPreference(this, aboutScreen.Resource, "twitter"));
+		try {
+			String macString = "";
+			WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+			WifiInfo info = wifi.getConnectionInfo();
+			macString = info.getMacAddress();
+			macString = macString.replace(":", "").toUpperCase();
+			aboutScreen.addPreference(new StringPreference(this,
+					aboutScreen.Resource, "mac", macString));
+		} catch (Exception e) {
+		}
 	}
 }

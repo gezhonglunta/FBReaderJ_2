@@ -681,17 +681,20 @@
 				<node name="summaryOff" value="Do not show" toBeTranslated="true"/>
 			</node>
 		</node>
-		<node name="about" value="About FBReader" toBeTranslated="true">
-			<node name="summary" value="Version info, contacts" toBeTranslated="true"/>
-			<node name="version" value="Version" toBeTranslated="true"/>
-			<node name="site" value="Visit our website" toBeTranslated="true">
-				<node name="url" value="http://www.fbreader.org/"/>
+		<node name="about" value="關於LXZKimage" toBeTranslated="true">
+			<node name="summary" value="版本信息,聯繫人" toBeTranslated="true"/>
+			<node name="version" value="版本" toBeTranslated="true"/>
+			<node name="site" value="訪問我們的網站" toBeTranslated="true">
+				<node name="url" value="http://www.anydsc.com/"/>
 			</node>
-			<node name="email" value="Send us an e-mail" toBeTranslated="true">
-				<node name="url" value="mailto:contact@geometerplus.com" toBeTranslated="true"/>
+			<node name="email" value="給我們發郵件" toBeTranslated="true">
+				<node name="url" value="mailto:sales@anydsc.com" toBeTranslated="true"/>
 			</node>
-			<node name="twitter" value="Follow us at twitter" toBeTranslated="true">
-				<node name="url" value="http://twitter.com/fbreader"/>
+			<node name="twitter" value="聯繫電話" toBeTranslated="true">
+				<node name="url" value="01080325095"/>
+			</node>
+			<node name="mac" value="設備號" toBeTranslated="true">
+				<node name="url" value="01080325095"/>
 			</node>
 		</node>
 	</node>

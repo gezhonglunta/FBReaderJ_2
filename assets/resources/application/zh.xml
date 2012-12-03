@@ -232,7 +232,7 @@
 		    <node name="passwordOk" value="确定" />
 		    <node name="passwordKey" value="密钥:" />
 		</node>
-		<node name="preferences" value="阅读相关设置"/>
+		<node name="preferences" value="设置"/>
 		<node name="bookInfo" value="书籍信息"/>
 		<node name="library" value="本地书柜"/>
 		<node name="toc" value="本书目录"/>
@@ -708,6 +708,9 @@
 				<node name="url" value="mailto:sales@anydsc.com"/>
 			</node>
 			<node name="twitter" value="联系电话">
+				<node name="url" value="01080325095"/>
+			</node>
+			<node name="mac" value="设备号">
 				<node name="url" value="01080325095"/>
 			</node>
 		</node>

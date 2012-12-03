@@ -7,6 +7,7 @@
 	<uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 	<application android:name="org.geometerplus.android.fbreader.FBReaderApplication" android:icon="@drawable/fbreader" android:label="LXZKimage">
 		<activity android:name="org.geometerplus.android.fbreader.error.BookReadingErrorActivity" android:theme="@android:style/Theme.Dialog" android:configChanges="orientation|keyboardHidden" android:process=":error">
 			<intent-filter>
